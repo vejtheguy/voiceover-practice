@@ -1,4 +1,4 @@
-# VoiceOver Leraning and Practice Webpage
+# VoiceOver Learning and Practice Webpage
 
 ## Description:
 
