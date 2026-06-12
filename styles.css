@@ -52,6 +52,10 @@ ul {
   margin-bottom: 1.25rem;
 }
 
+.bold-text {
+  font-weight: 700;
+}
+
 li {
   margin-bottom: 0.5rem;
 }
