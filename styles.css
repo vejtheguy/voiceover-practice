@@ -128,6 +128,10 @@ ol {
   margin: 0;
 }
 
+.scroll-gap {
+  margin-bottom: 80vh;
+}
+
 .responsive-img {
   width: 100%;
   height: 200px;
