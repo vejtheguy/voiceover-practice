@@ -18,6 +18,9 @@
 
 html {
   background-color: var(--color-background);
+  scroll-behavior: smooth;
+  scroll-padding-top: 10vh;
+  scroll-padding-bottom: 10vh;
 }
 
 body {
