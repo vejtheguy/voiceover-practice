@@ -159,6 +159,7 @@ ol {
 
 .button-link {
   text-decoration: none;
+  text-align: center;
   font-size: 1.5rem;
   padding: 1.5rem 1.5rem;
   min-height: 2.75rem;
@@ -168,16 +169,14 @@ ol {
   color: var(--color-white);
   border-radius: var(--border-radius);
   border: 2px solid transparent;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   cursor: pointer;
   outline: 3px solid transparent;
   transition: background-color 0.3s ease;
 }
 
 .button-link:hover,
-.button-link:focus {
+.button-link:focus-visible {
   background-color: var(--color-blue-90);
   color: var(--color-blue);
   outline: 2px solid var(--color-blue);
