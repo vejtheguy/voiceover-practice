@@ -8,6 +8,7 @@
   --color-blue-90: #e7f5ff;
   --color-blue-60: #b2c3d2;
   --color-focus-blue: #339af0;
+  --color-blue-50: #0066cc;
   --color-blue-40: #0077f6;
   --color-blue-20: #4dabf7;
   --color-red-40: #d63384;
@@ -33,7 +34,9 @@ body {
   font-family: "Atkinson Hyperlegible", sans-serif;
   color: var(--color-font);
   line-height: 1.5;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1 {
@@ -74,13 +77,15 @@ li {
   width: 100%;
   max-width: 80ch;
   margin: 0 auto;
+  padding: 1.5rem;
 }
 
 main.container {
   display: flex;
   flex-direction: column;
-  gap: 5vh;
-  min-height: 100vh;
+  padding: 1.5rem;
+  gap: 2rem;
+  flex: 1 0 auto;
 }
 
 .back-link {
@@ -164,13 +169,6 @@ ol {
   display: block;
 }
 
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 15px;
-}
-
 .button-link {
   text-decoration: none;
   text-align: center;
@@ -209,7 +207,7 @@ ol {
   padding: 1.5rem 2rem;
   background-color: #f8f9fa;
   border-radius: 8px;
-  color: #0066cc;
+  color: var(--color-blue-50);
   text-decoration: none;
   font-weight: 500;
   font-size: 1.5rem;
@@ -295,4 +293,50 @@ code {
   border-radius: 4px;
   font-size: 1.1rem;
   color: var(--color-red-40);
+}
+
+.footer {
+  background-color: var(--color-gray-20);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px -2px 8px;
+  padding: 3rem;
+  width: 100%;
+  font-size: 1.3rem;
+  margin-top: 3rem;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 60ch;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--color-gray-90);
+}
+
+.footer-link {
+  color: var(--color-blue-50);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--color-blue);
+  background-color: var(--color-blue-90);
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 2px;
+  transition: all 0.2s ease;
 }
