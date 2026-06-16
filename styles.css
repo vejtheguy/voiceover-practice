@@ -2,16 +2,17 @@
   --color-font: #000000;
   --color-gray-90: #191919;
   --color-gray-20: #ebebeb;
+  --color-gray-30: #d4d4d4;
   --color-background: #f2f3f4;
   --color-yellow: #ffea00;
   --color-blue: #004499;
   --color-blue-90: #e7f5ff;
   --color-blue-60: #b2c3d2;
   --color-focus-blue: #339af0;
-  --color-blue-50: #0066cc;
+  --color-blue-50: #044d95;
   --color-blue-40: #0077f6;
   --color-blue-20: #4dabf7;
-  --color-red-40: #d63384;
+  --color-red-40: #a01344;
   --color-white: #ffffff;
   --font-size-sm: 1.5rem;
   --border-radius: 8px;
@@ -340,6 +341,67 @@ code {
 
 .footer-link:hover,
 .footer-link:focus-visible {
+  color: var(--color-blue);
+  background-color: var(--color-blue-90);
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.log-contents {
+  padding: 1rem 0;
+  border-top: 2px solid var(--color-gray-30);
+  border-bottom: 2px solid var(--color-gray-30);
+}
+
+.log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.log-list a {
+  color: var(--color-blue-50);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+
+.log-list a:focus-visible,
+.log-list a:hover {
+  color: var(--color-blue);
+  background-color: var(--color-blue-90);
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.back-to-top-link {
+  color: var(--color-blue-50);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  max-width: fit-content;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+
+.back-to-top-link:hover,
+.back-to-top-link:focus-visible {
   color: var(--color-blue);
   background-color: var(--color-blue-90);
   outline: 3px solid var(--color-focus-blue);

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 0: Starting VoiceOver</title>
+    <title>Accessibility Design Log</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,15 +13,117 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body id="top">
     <header class="container">
         <a class="back-link" href="index.html">Back to Main Menu</a>
         <h1>Accessibility Design Log</h1>
         <p>Learning about WCAG compliance and how I have been applying it on this practice website.</p>
+        <nav class="log-contents" aria-label="Table of Contents">
+            <ul class="log-list">
+                <li><a href="#opening-links">Opening Links</a></li>
+                <li><a href="#reflow">Reflow</a></li>
+                <li><a href="#contrast-enhanced">Contrast (Enhanced)</a></li>
+                <li><a href="#contrast-minimum">Contrast (Minimum)</a></li>
+                <li><a href="#resize-text">Resize Text</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="container">
-        <article class="log-card">
+        <article class="log-card" id="opening-links">
+            <header class="log-header">
+                <h2>Opening Links</h2>
+                <a href="https://theadminbar.com/accessibility-weekly/opening-links-in-new-tabs-or-not/"
+                    class="wcag-link">
+                    Opening Links in New Tabs (or Not)
+                </a>
+            </header>
+
+            <div class="log-body">
+                <strong>My Implementation:</strong>
+                <p>I have always created links on my webpages using <code>target="_blank"</code> to open them in new
+                    tabs. For most
+                    screen readers though, this causes a problem and complexity for the user. To avoid this, I have left
+                    links to open in the same tab by default. I believe this issue is tied to <a class="wcag-link"
+                        href="https://www.w3.org/WAI/WCAG21/Understanding/change-on-request.html">WCAG 3.2.5</a>, where
+                    users should have full control of major content changes.
+                </p>
+            </div>
+        </article>
+        <article class="log-card" id="reflow">
+            <header class="log-header">
+                <h2>Reflow (Level AA)</h2>
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" class="wcag-link">
+                    Official Guideline: WCAG 1.4.10
+                </a>
+            </header>
+
+            <div class="log-body">
+                <div class="criterion-box">
+                    <strong>The WCAG Goal:</strong>
+                    <p>Content can be enlarged without increasing line length. There is no loss of information or
+                        functionality, and without requiring scrolling in two dimensions.</p>
+                </div>
+
+                <strong>My Implementation:</strong>
+                <p>I achieved this by primarily using <code>rem</code> units for all of my font-sizing and layout
+                    spacing. I also used display <code>flex</code> for my layout structure, allowing me to make sure
+                    content is responsive and reflows properly when the viewport size changes.
+                </p>
+            </div>
+        </article>
+        <article class="log-card" id="contrast-enhanced">
+            <header class="log-header">
+                <h2>Contrast (Enhanced) (Level AAA)</h2>
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html" class="wcag-link">
+                    Official Guideline: WCAG 1.4.6
+                </a>
+            </header>
+
+            <div class="log-body">
+                <div class="criterion-box">
+                    <strong>The WCAG Goal:</strong>
+                    <p>Visual presentation of text has a contrast ratio of at least 7:1, or large-scale text have
+                        contrast ratio 4.5:1.</p>
+                </div>
+
+                <strong>My Implementation:</strong>
+                <p>I believe I have achieved this across all of the text content on this website. This WCAG goal is just
+                    a much more intense version of the previous contrast requirement, which I have met well above the
+                    <strong>7:1</strong> ratio on most things. Some of the blue text on gray background is lower, but I
+                    think because of the font-size being larger, I am still meeting the requirement of
+                    <strong>4.5:1</strong> for
+                    large-scale text.
+                </p>
+            </div>
+        </article>
+        <article class="log-card" id="contrast-minimum">
+            <header class="log-header">
+                <h2>Contrast (Minimum) (Level AA)</h2>
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" class="wcag-link">
+                    Official Guideline: WCAG 1.4.3
+                </a>
+            </header>
+
+            <div class="log-body">
+                <div class="criterion-box">
+                    <strong>The WCAG Goal:</strong>
+                    <p>Visual presentation of text has a contrast ratio of at least 4.5:1, or large-scale text have
+                        contrast ratio 3:1.</p>
+                </div>
+
+                <strong>My Implementation:</strong>
+                <p>I utilized the Google Chrome extension <em>Colour Contrast Checker</em> to analyze the contrast ratio
+                    of my text and background colors. This actually made it easier for me to choose color combinations
+                    as I was designing the website. For example, this color text is a very dark gray
+                    (<code>#191919</code>) on a
+                    white background (<code>#ffffff</code>), giving me a contrast ration of <strong>17.58:1</strong>,
+                    which is well above the minimum
+                    requirement of <strong>4.5:1</strong>.
+                </p>
+            </div>
+        </article>
+        <article class="log-card" id="resize-text">
             <header class="log-header">
                 <h2>Resize Text (Level AA)</h2>
                 <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html" class="wcag-link">
@@ -45,6 +147,7 @@
                 </p>
             </div>
         </article>
+        <a href="#top" class="back-to-top-link">Back to Top</a>
     </main>
 
     <footer class="footer">
