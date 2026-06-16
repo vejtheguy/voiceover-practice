@@ -83,7 +83,7 @@ li {
 main.container {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
   gap: 2rem;
   flex: 1 0 auto;
 }
@@ -247,20 +247,26 @@ ol {
 }
 
 .wcag-link {
-  color: var(--color-blue-40);
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 500;
+  color: var(--color-blue-50);
+  max-width: fit-content;
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
-  width: fit-content;
+  text-underline-offset: 0.4rem;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  font-size: 1.2rem;
+  margin-left: -0.5rem;
   transition: all 0.2s ease;
 }
 
 .wcag-link:hover,
 .wcag-link:focus-visible {
-  padding-left: 0.5rem;
   color: var(--color-blue);
+  background-color: var(--color-blue-90);
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 2px;
   transition: all 0.2s ease;
 }
 
