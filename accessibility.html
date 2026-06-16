@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 0: Starting VoiceOver</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="container">
+        <a class="back-link" href="index.html">Back to Main Menu</a>
+        <h1>Accessibility Design Log</h1>
+        <p>Learning about WCAG compliance and applying it on this practice website.</p>
+    </header>
+
+    <main class="container">
+        <article class="log-card">
+            <header class="log-header">
+                <h2>Resize Text (Level AA)</h2>
+                <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html" class="wcag-link">
+                    Official Guideline: WCAG 1.4.4
+                </a>
+            </header>
+
+            <div class="log-body">
+                <div class="criterion-box">
+                    <strong>The WCAG Goal:</strong>
+                    <p>Ensure text is adaptive and resizable up to 200% (doubled in size) without loss of content,
+                        functionality, or breaking the layout structure.</p>
+                </div>
+
+                <strong>My Implementation:</strong>
+                <p>I was able to achieve this by utilizing <code>rem</code> units for all of my font-sizing rather than
+                    fixed
+                    <code>px</code> values. This ensures that the text properly scales dynamically based on the root
+                    element
+                    (<code aria-label="HTML tag">&lt;html&gt;</code>).
+                </p>
+            </div>
+        </article>
+
+    </main>
+</body>
+
+</html>
