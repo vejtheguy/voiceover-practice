@@ -27,6 +27,21 @@
         </div>
 
         <section class="task-section">
+            <h2>Split-tap Gesture</h2>
+            <p>Another useful way to activate an item is to touch and hold the item you want to click with one finger,
+                and while that is being held, tap another finger down on the screen.</p>
+            <p>Try clicking the button below using the split-tap gesture.</p>
+            <button id="toggle-btn" aria-pressed="false" class="button-link">Activate Me</button>
+            <script>
+                const button = document.getElementById('toggle-btn');
+                button.addEventListener('click', () => {
+                    const isPressed = button.getAttribute('aria-pressed') === 'true';
+                    button.setAttribute('aria-pressed', String(!isPressed));
+                })
+            </script>
+        </section>
+
+        <section class="task-section">
             <h2>Task: Go to next lesson</h2>
             <p>Single tap on to the link below. VoiceOver will state the text and that this is a link.</p>
             <p>This will be used
