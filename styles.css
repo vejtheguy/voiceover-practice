@@ -55,7 +55,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-top: 1.2rem;
   margin-bottom: 0.5rem;
 }
@@ -407,4 +407,17 @@ code {
   outline: 3px solid var(--color-focus-blue);
   outline-offset: 2px;
   transition: all 0.2s ease;
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  border: 0.5rem solid var(--color-focus-blue);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+}
+
+.popup h3 {
+  margin: 0;
 }
