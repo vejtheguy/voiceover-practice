@@ -34,13 +34,34 @@
 
         <section class="task-section">
             <h2>Scrub: Exit the Pop-up</h2>
-            <p>Click on the button below and an alert pop-up will appear on the screen.</p>
+            <p>Click on the button below and a pop-up will appear on the screen.</p>
             <p>Use the two finger scrub gesture to close out of the pop-up.</p>
             <div class="inner-section">
-                <button class="button-link"
-                    onclick="alert('This is a pop-up alert! Use the two finger scrub gesture to close it.')">Click Me
+                <button id="trigger-popup" class="button-link">Click Me
                     for a Pop-up</button>
+                <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-heading" class="popup">
+                    <h3 id="popup-heading">Pop-up Practice</h3>
+                    <p>This is a pop-up box. Use the two finger scrub gesture to close it.</p>
+                    <p><em>Tip:</em> If using a keyboard, use the Escape key to close this.</p>
+                </div>
             </div>
+            <script>
+                const btn = document.getElementById('trigger-popup');
+                const popup = document.getElementById('popup');
+
+                btn.addEventListener('click', () => {
+                    popup.style.display = 'flex';
+                    popup.setAttribute('tabindex', '-1');
+                    popup.focus();
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && popup.style.display === 'flex') {
+                        popup.style.display = 'none';
+                        btn.focus();
+                    }
+                });
+            </script>
         </section>
 
         <a class="button-link" href="./index.html">Back to Main Menu</a>
