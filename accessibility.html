@@ -182,6 +182,15 @@
                 targetElement.focus();
             })
         })
+
+        document.querySelector("a[href='#top']").addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = e.currentTarget.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            targetElement.setAttribute('tabindex', '-1');
+            targetElement.focus();
+        })
     </script>
 </body>
 
