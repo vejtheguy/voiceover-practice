@@ -237,11 +237,6 @@ ol {
   outline: none;
 }
 
-.log-card[tabindex="-1"]:focus-visible:not(:focus-within) {
-  outline: 4px solid var(--color-focus-blue);
-  outline-offset: 3px;
-}
-
 .log-header {
   display: flex;
   flex-direction: column;
