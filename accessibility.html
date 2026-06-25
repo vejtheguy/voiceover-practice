@@ -169,6 +169,20 @@
             </nav>
         </div>
     </footer>
+    <script src="./pageFocus.js"></script>
+    <script>
+        document.querySelectorAll('ul.log-list li a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const targetId = e.currentTarget.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                targetElement.setAttribute('tabindex', '-1');
+                targetElement.focus();
+            })
+        })
+    </script>
 </body>
 
 </html>
