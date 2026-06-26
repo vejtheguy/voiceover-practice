@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const isHomePage =
     window.location.pathname.endsWith("/") ||
     window.location.pathname.endsWith("index.html");
-  const prefix = isHomePage ? "../" : "./";
+  const prefix = isHomePage ? "./" : "../";
 
   if (footer) {
     fetch(`${prefix}components/footer.html`)
