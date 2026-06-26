@@ -13,23 +13,24 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessibility Design Log</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>WCAG Reference Log</title>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
+    <script src="../js/globalComponents.js" defer></script>
+    <script src="../js/pageFocus.js" defer></script>
 </head>
 
 <body>
-    <header id="top" class="container">
-        <a class="back-link" href="index.html">Back to Main Menu</a>
-        <h1>Accessibility Design Log</h1>
+    <header class="container">
+        <a class="back-link" href="../index.html">Back to Main Menu</a>
+        <h1 id="top">WCAG Reference Log</h1>
         <p>Learning about WCAG compliance and how I have been applying it on this practice website.</p>
         <nav class="log-contents" aria-label="Table of Contents">
             <ul class="log-list">
-                <li><a href="#opening-links">Opening Links</a></li>
                 <li><a href="#reflow">Reflow</a></li>
                 <li><a href="#contrast-enhanced">Contrast (Enhanced)</a></li>
                 <li><a href="#contrast-minimum">Contrast (Minimum)</a></li>
@@ -39,26 +40,6 @@
     </header>
 
     <main class="container">
-        <article class="log-card" id="opening-links">
-            <header class="log-header">
-                <h2>Opening Links</h2>
-                <a href="https://theadminbar.com/accessibility-weekly/opening-links-in-new-tabs-or-not/"
-                    class="wcag-link">
-                    Opening Links in New Tabs (or Not)
-                </a>
-            </header>
-
-            <div class="log-body">
-                <strong>My Implementation:</strong>
-                <p>I have always created links on my webpages using <code>target="_blank"</code> to open them in new
-                    tabs. For most
-                    screen readers though, this causes a problem and complexity for the user. To avoid this, I have left
-                    links to open in the same tab by default. I believe this issue is tied to <a class="wcag-link"
-                        href="https://www.w3.org/WAI/WCAG21/Understanding/change-on-request.html">WCAG 3.2.5</a>, where
-                    users should have full control of major content changes.
-                </p>
-            </div>
-        </article>
         <article class="log-card" id="reflow">
             <header class="log-header">
                 <h2>Reflow (Level AA)</h2>
@@ -139,7 +120,6 @@
                     Official Guideline: WCAG 1.4.4
                 </a>
             </header>
-
             <div class="log-body">
                 <div class="criterion-box">
                     <strong>The WCAG Goal:</strong>
@@ -159,17 +139,7 @@
         <a href="#top" class="back-to-top-link">Back to Top</a>
     </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy;
-                <script>document.write(new Date().getFullYear());</script> iPad VoiceOver Practice
-            </p>
-            <nav aria-label="Footer Navigation">
-                <a href="accessibility.html" class="footer-link">Accessibility Design Log</a>
-            </nav>
-        </div>
-    </footer>
-    <script src="./pageFocus.js"></script>
+    <div id="global-footer"></div>
     <script>
         document.querySelectorAll('ul.log-list li a').forEach(link => {
             link.addEventListener('click', (e) => {

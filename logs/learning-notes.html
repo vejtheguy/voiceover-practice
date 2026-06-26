@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WED8T77JQS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WED8T77JQS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Field Notes</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script src="../js/globalComponents.js" defer></script>
+    <script src="../js/pageFocus.js" defer></script>
+</head>
+
+<body>
+    <header class="container">
+        <a class="back-link" href="../index.html">Back to Main Menu</a>
+        <h1 id="top" aria-label="Accessibility Field Notes">A11y Field Notes</h1>
+        <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
+        <nav class="log-contents" aria-label="Table of Contents">
+            <ul class="log-list">
+                <li><a href="#opening-links">Opening Links</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article class="log-card" id="opening-links">
+            <header class="log-header">
+                <h2>Opening Links</h2>
+                <a href="https://theadminbar.com/accessibility-weekly/opening-links-in-new-tabs-or-not/"
+                    class="wcag-link">
+                    Opening Links in New Tabs (or Not)
+                </a>
+            </header>
+
+            <div class="log-body">
+                <strong>My Implementation:</strong>
+                <p>I have always created links on my webpages using <code>target="_blank"</code> to open them in new
+                    tabs. For most
+                    screen readers though, this causes a problem and complexity for the user. To avoid this, I have left
+                    links to open in the same tab by default. I believe this issue is tied to <a class="wcag-link"
+                        href="https://www.w3.org/WAI/WCAG21/Understanding/change-on-request.html">WCAG 3.2.5</a>, where
+                    users should have full control of major content changes.
+                </p>
+            </div>
+        </article>
+        <a href="#top" class="back-to-top-link">Back to Top</a>
+    </main>
+
+    <div id="global-footer"></div>
+    <script>
+        document.querySelectorAll('ul.log-list li a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const targetId = e.currentTarget.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                targetElement.setAttribute('tabindex', '-1');
+                targetElement.focus();
+            })
+        })
+
+        document.querySelector("a[href='#top']").addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = e.currentTarget.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            targetElement.setAttribute('tabindex', '-1');
+            targetElement.focus();
+        })
+    </script>
+</body>
+
+</html>
