@@ -195,6 +195,10 @@ ol {
   transition: all 0.2s ease;
 }
 
+#lessons-heading {
+  margin-bottom: 2rem;
+}
+
 .lessons-list {
   list-style-type: none;
   padding-left: 0;
@@ -326,7 +330,7 @@ code {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -334,27 +338,6 @@ code {
 .footer p {
   margin: 0;
   color: var(--color-gray-90);
-}
-
-.footer-link {
-  color: var(--color-blue-50);
-  text-decoration: underline;
-  text-underline-offset: 0.4rem;
-  font-weight: 500;
-  border-radius: 4px;
-  padding: 0.5rem;
-  outline: 3px solid transparent;
-  outline-offset: 2px;
-  transition: all 0.2s ease;
-}
-
-.footer-link:hover,
-.footer-link:focus-visible {
-  color: var(--color-blue);
-  background-color: var(--color-blue-90);
-  outline: 3px solid var(--color-focus-blue);
-  outline-offset: 2px;
-  transition: all 0.2s ease;
 }
 
 .log-contents {
@@ -429,4 +412,47 @@ code {
 
 .popup h3 {
   margin: 0;
+}
+
+.visually-hidden {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.footer-resources {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.footer-resources a {
+  color: var(--color-blue-50);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+
+.footer-resources a:hover,
+.footer-resources a:focus-visible {
+  color: var(--color-blue);
+  background-color: var(--color-blue-90);
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 2px;
+  transition: all 0.2s ease;
 }
