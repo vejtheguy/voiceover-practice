@@ -27,16 +27,118 @@
 <body>
     <header class="container">
         <a class="back-link" href="../index.html">Back to Main Menu</a>
-        <h1 id="top" aria-label="Accessibility Field Notes">A11y Field Notes</h1>
+        <h1 id="top"><abbr title="Accessibility">A11y</abbr> Field Notes</h1>
         <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
-        <nav class="log-contents" aria-label="Table of Contents">
+        <nav class="log-contents" aria-labelledby="toc-heading">
+            <h2 id="toc-heading" class="visually-hidden">Table of Contents</h2>
             <ul class="log-list">
+                <li><a href="#hiding-h2">Using Hidden Headings inside Navigation Elements</a></li>
+                <li><a href="#anchor-focus">Anchor Focus Using JavaScript</a></li>
+                <li><a href="#page-focus">Page Navigation Focus</a></li>
+                <li><a href="#abbr">Abbreviation Element</a></li>
                 <li><a href="#opening-links">Opening Links</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
+        <article class="log-card" id="hiding-h2">
+            <header class="log-header">
+                <h2>Using Hidden Headings inside Navigation Elements</h2>
+            </header>
+            <div class="log-body">
+                <p>
+                    When wrapping a list of links inside a native nav element without a heading, I noticed that the
+                    screen reader tends to
+                    over-announce structural information. Because there is no explicit label for the navigation block,
+                    the screen reader
+                    will often combine the landmark, list, and first link data into a single, long, repetitive
+                    announcement.
+                </p>
+
+                <strong>My Implementation:</strong>
+
+                <p>To fix this, I found that we can add a visually hidden h2 element at the beginning of the nav block
+                    and link it to the
+                    container using an id and the aria-labelledby attribute. Adding this heading allows the screen
+                    reader to announce the
+                    heading title first to establish context, resulting in a much cleaner and more natural experience
+                    for a screen reader
+                    user.</p>
+
+            </div>
+        </article>
+        <article class="log-card" id="anchor-focus">
+            <header class="log-header">
+                <h2>Anchor Focus Using JavaScript</h2>
+            </header>
+            <div class="log-body">
+                <p>
+                    In order for multiple in-page anchor links on a webpage to work reliably with screen readers, custom
+                    JavaScript must be
+                    implemented. Without it, a screen reader can get stuck repeating the link text or focusing on an
+                    incorrect location
+                    after a jump. This happens because the browser's accessibility focus remains locked onto the clicked
+                    link. When the
+                    screen reader tries to continue reading from that original position, it conflicts with the visual
+                    scroll, causing the
+                    viewport to snap back or get stuck at an unpredictable location.
+                </p>
+
+                <strong>My Implementation:</strong>
+
+                <p>To fix this, a tabindex of -1 is programmatically applied to the target element (like an article or
+                    heading). This opens
+                    up the static element to receive focus, allowing us to utilize JavaScript's <code>.focus()</code>
+                    method to physically
+                    move the screen reader's focus directly to that section of the page.</p>
+                <p><em>Note:</em> Single "skip to main content" links at the very top of a page often handle the
+                    native anchor focus with no issues. However, when navigating between multiple anchor targets across
+                    the
+                    same page,
+                    JavaScript focus management is required to prevent screen reader confusion.</p>
+            </div>
+        </article>
+        <article class="log-card" id="page-focus">
+            <header class="log-header">
+                <h2>Page Navigation Focus</h2>
+            </header>
+            <div class="log-body">
+                <strong>My Implementation:</strong>
+                <p>
+                    I noticed that sometimes when I would click on one of the links on my website and it opened a new
+                    page,
+                    the screen reader would get stuck repeating the link information from the previous page, or begin
+                    reading
+                    from a random element on the page. To fix this issue, I utilized <strong>JavaScript</strong> to set
+                    the
+                    focus to the <code>&lt;h1&gt;</code> element of the page when loaded. A slight delay needed to be
+                    added;
+                    otherwise, the JavaScript focus method would trigger before the screen reader had fully loaded the
+                    new DOM content.
+                </p>
+            </div>
+        </article>
+        <article class="log-card" id="abbr">
+            <header class="log-header">
+                <h2>Abbreviation Element</h2>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr" class="wcag-link">
+                    MDN: HTML abbreviation element
+                </a>
+            </header>
+            <div class="log-body">
+                <p>Using the <strong>&lt;abbr&gt;</strong> element is a great way to help screen readers properly
+                    pronounce
+                    abbreviations or acronyms.
+                    For example, a screen reader would typically read <strong>A11y</strong> as "A eleven y" or "A one
+                    one y"
+                    instead of "Accessibility".
+                    To fix this, we can wrap just the abbreviation in an abbr tag with a title attribute:
+                    <code>&lt;abbr title="Accessibility"&gt;A11y&lt;/abbr&gt; Field Notes</code>.
+                    This tells the screen reader to pronounce the sentence as "Accessibility Field Notes".
+                </p>
+            </div>
+        </article>
         <article class="log-card" id="opening-links">
             <header class="log-header">
                 <h2>Opening Links</h2>

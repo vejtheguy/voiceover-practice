@@ -279,6 +279,12 @@ ol {
   transition: all 0.2s ease;
 }
 
+.log-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .log-body p {
   font-size: 1.3rem;
   line-height: 1.5;
