@@ -27,7 +27,8 @@
 <body>
     <header class="container">
         <a class="back-link" href="../index.html">Back to Main Menu</a>
-        <h1 id="top"><abbr title="Accessibility">A11y</abbr> Field Notes</h1>
+        <h1 id="top"><span aria-hidden="true">A11y</span><span class="visually-hidden">Accessibility</span> Field Notes
+        </h1>
         <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
         <nav class="log-contents" aria-labelledby="toc-heading">
             <h2 id="toc-heading" class="visually-hidden">Table of Contents</h2>
@@ -35,7 +36,7 @@
                 <li><a href="#hiding-h2">Using Hidden Headings inside Navigation Elements</a></li>
                 <li><a href="#anchor-focus">Anchor Focus Using JavaScript</a></li>
                 <li><a href="#page-focus">Page Navigation Focus</a></li>
-                <li><a href="#abbr">Abbreviation Element</a></li>
+                <li><a href="#abbr">Screen Readers and Abbreviations</a></li>
                 <li><a href="#opening-links">Opening Links</a></li>
             </ul>
         </nav>
@@ -124,22 +125,26 @@
         </article>
         <article class="log-card" id="abbr">
             <header class="log-header">
-                <h2>Abbreviation Element</h2>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr" class="wcag-link">
-                    MDN: HTML abbreviation element
-                </a>
+                <h2>Screen Readers and Abbreviations</h2>
             </header>
             <div class="log-body">
-                <p>Using the <strong>&lt;abbr&gt;</strong> element is a great way to help screen readers properly
+                <p>Using the <strong>&lt;abbr&gt;</strong> element is the appropriate way to help screen readers
+                    properly
                     pronounce
-                    abbreviations or acronyms.
-                    For example, a screen reader would typically read <strong>A11y</strong> as "A eleven y" or "A one
+                    abbreviations or acronyms. Sadly, some screen readers, such as VoiceOver, ignore this element and
+                    will pronounce the abbreviation instead of the full word or phrase.
+                    For example, VoiceOver would typically read <strong>A11y</strong> as "A eleven y" or "A one
                     one y"
                     instead of "Accessibility".
-                    To fix this, we can wrap just the abbreviation in an abbr tag with a title attribute:
-                    <code>&lt;abbr title="Accessibility"&gt;A11y&lt;/abbr&gt; Field Notes</code>.
-                    This tells the screen reader to pronounce the sentence as "Accessibility Field Notes".
                 </p>
+                <strong>My Implementation:</strong>
+                <p>The workaround to fix this issue is to utilize visually hidden text. By wrapping the abbreviation in
+                    a span tag with
+                    aria-hidden="true", we can hide it from the screen reader entirely. Right next to it, we can place a
+                    second span tag
+                    containing the full word wrapped in a visually-hidden class. This makes it so sighted users see the
+                    abbreviation, while the
+                    screen reader bypasses it completely to read the full word instead.</p>
             </div>
         </article>
         <article class="log-card" id="opening-links">
