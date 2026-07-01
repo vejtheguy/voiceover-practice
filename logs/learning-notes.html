@@ -34,6 +34,7 @@
         <nav class="log-contents" aria-labelledby="toc-heading">
             <h2 id="toc-heading" class="visually-hidden">Table of Contents</h2>
             <ul class="log-list">
+                <li><a href="#alt-text">Writing Alt Text</a></li>
                 <li><a href="#hiding-h2">Using Hidden Headings inside Navigation Elements</a></li>
                 <li><a href="#anchor-focus">Anchor Focus Using JavaScript</a></li>
                 <li><a href="#page-focus">Page Navigation Focus</a></li>
@@ -44,6 +45,52 @@
     </header>
 
     <main class="container">
+        <article class="log-card" id="alt-text">
+            <header class="log-header">
+                <h2>Writing Alt Text</h2>
+                <a href="https://afb.org/digital-inclusion/accessibility-resources/writing-effective-image-descriptions"
+                    class="wcag-link">
+                    Writing Effective Image Descriptions
+                </a>
+                <a href="https://youtu.be/-6PxJxD08RI?si=zOtkl2jm5L3KTAE6" class="wcag-link">
+                    How to Write Good Alt Text - YouTube Video
+                </a>
+            </header>
+            <div class="log-body">
+                <p>Alt text is an essential way to describe non-text content, such as images, to screen reader users.
+                    Context is extremely
+                    important and should help with how you go about describing a graphic element. It's also good to try
+                    and keep
+                    descriptions short (1 to 2 sentences) so as to not overwhelm the reader.
+                </p>
+
+                <strong>Three common image types:</strong>
+                <ol>
+                    <li><strong>Informative:</strong> The page loses meaning if the image is removed. Provide a concise,
+                        context-aware description.</li>
+                    <li><strong>Functional:</strong> The image acts as a clickable link or button. Describe the
+                        destination or action, not the visual appearance of the icon.</li>
+                    <li><strong>Decorative:</strong> The image is a background graphic or visual spacer that provides no
+                        unique content. Use a null attribute (alt="") to
+                        tell the screen reader to silently skip over it; otherwise, the screen reader may default to
+                        reading the raw file name
+                        aloud.</li>
+                </ol>
+
+                <p><strong>Bad Phrases:</strong> Do not use the phrases "image of" or "picture of." Screen readers
+                    automatically announce the element as
+                    a graphic.</p>
+                <p><strong>Proper Grammar:</strong> Always use correct grammar and end sentences with a period. This
+                    creates natural pauses for screen readers.
+                    Additionally, if an image fails to load, sighted users will be able to read a clean text description
+                    instead.</p>
+                <p><strong>Compliance:</strong> This practice is tied directly to <a class="wcag-link"
+                        href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content">WCAG Success Criterion 1.1.1
+                        (Non-text Content)</a>, which mandates that all non-text
+                    content must have a text alternative that serves an equivalent purpose.</p>
+
+            </div>
+        </article>
         <article class="log-card" id="hiding-h2">
             <header class="log-header">
                 <h2>Using Hidden Headings inside Navigation Elements</h2>
