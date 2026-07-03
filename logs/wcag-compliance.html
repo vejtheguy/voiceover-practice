@@ -13,22 +13,25 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WCAG Reference Log</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>WCAG Reference Log | Learning Digital Accessibility</title>
+    <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
-    <script src="../js/globalComponents.js" defer></script>
-    <script src="../js/pageFocus.js" defer></script>
+    <script src="/js/globalComponents.js" defer></script>
+    <script src="/js/pageFocus.js" defer></script>
 </head>
 
 <body>
-    <header class="container">
-        <a class="back-link" href="../index.html">Back to Main Menu</a>
-        <h1 id="top">WCAG Reference Log</h1>
-        <p>Learning about WCAG compliance and how I have been applying it on this practice website.</p>
+    <header id="global-header"></header>
+
+    <main class="container">
+        <section>
+            <h1 id="top">WCAG Reference Log</h1>
+            <p>Learning about WCAG compliance and how I have been applying it on this practice website.</p>
+        </section>
         <nav class="log-contents" aria-label="Table of Contents">
             <ul class="log-list">
                 <li><a href="#non-text">Non-text Content</a></li>
@@ -38,9 +41,7 @@
                 <li><a href="#resize-text">Resize Text</a></li>
             </ul>
         </nav>
-    </header>
 
-    <main class="container">
         <article class="log-card" id="non-text">
             <header class="log-header">
                 <h2>Non-text Content (Level A)</h2>
