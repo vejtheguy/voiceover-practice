@@ -1,6 +1,7 @@
 :root {
   --color-font: #000000;
   --color-gray-90: #191919;
+  --color-gray-10: #f9f9f9;
   --color-gray-20: #ebebeb;
   --color-gray-30: #d4d4d4;
   --color-background: #f2f3f4;
@@ -78,13 +79,12 @@ li {
   width: 100%;
   max-width: 80ch;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 0 2.5rem;
 }
 
 main.container {
   display: flex;
   flex-direction: column;
-  padding: 0 1.5rem;
   gap: 2rem;
   flex: 1 0 auto;
 }
@@ -116,9 +116,10 @@ main.container {
 }
 
 .task-section {
-  border: 2px solid var(--color-blue-60);
-  padding: 2rem;
+  background-color: var(--color-white);
   border-radius: 8px;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: visible;
 }
 
@@ -139,9 +140,9 @@ ol {
 }
 
 .inner-section {
-  background: #f9f9f9;
+  background: var(--color-gray-10);
   padding: 1.5rem;
-  border: 1px dashed #686868;
+  border: 1px dashed var(--color-blue-60);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -319,26 +320,21 @@ code {
 .footer {
   background-color: var(--color-gray-20);
   box-shadow: rgba(0, 0, 0, 0.16) 0px -2px 8px;
-  padding: 3rem;
-  width: 100%;
+  padding: 2.5rem 0;
   font-size: 1.3rem;
   margin-top: 3rem;
+  color: var(--color-gray-90);
 }
 
 .footer-container {
-  width: 100%;
-  max-width: 60ch;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: end;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
 }
 
 .footer p {
   margin: 0;
-  color: var(--color-gray-90);
 }
 
 .log-contents {
@@ -433,14 +429,14 @@ code {
   margin: 0;
   margin-left: -0.5rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 0.8rem;
 }
 
 .footer-resources a {
-  color: var(--color-blue-50);
-  text-decoration: underline;
-  text-underline-offset: 0.4rem;
+  color: var(--color-gray-90);
+  text-decoration: none;
   font-weight: 500;
   border-radius: 4px;
   padding: 0.5rem;
@@ -457,4 +453,119 @@ code {
   outline: 3px solid var(--color-focus-blue);
   outline-offset: 2px;
   transition: all 0.2s ease;
+}
+
+.site-header {
+  padding: 2.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.site-logo {
+  font-weight: 600;
+  color: var(--color-font);
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  max-width: 15ch;
+  padding: 0.2rem 0.2rem 0.2rem 0;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.site-logo:hover,
+.site-logo:focus-visible {
+  border-left: 4px solid var(--color-blue-40);
+  padding-left: 1rem;
+  transition: all 0.2s ease;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.nav-links a {
+  color: var(--color-gray-90);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+  margin-left: -0.5rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--color-blue);
+  background-color: var(--color-blue-90);
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a[aria-current="page"] {
+  font-weight: 700;
+  color: var(--color-blue-40);
+  text-underline-offset: 0.4rem;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 0;
+  }
+
+  .footer-resources {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  font-size: 1.2rem;
+  z-index: 999;
+
+  background-color: var(--color-white);
+  color: var(--color-focus-blue);
+
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 4px;
+  outline: 3px solid var(--color-focus-blue);
+  outline-offset: 4px;
 }
