@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         header.innerHTML = data;
 
-        const currentPath = window.location.pathname.slice(1);
+        const currentPath = window.location.pathname;
         const siteLogo = header.querySelector(".site-logo");
         siteLogo.setAttribute("href", `${prefix}index.html`);
         const headerLinks = header.querySelectorAll(".nav-links a");
