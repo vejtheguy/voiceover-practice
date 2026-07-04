@@ -1,18 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("global-header");
   const footer = document.getElementById("global-footer");
+  const prefix = document.body.getAttribute("data-path-prefix") || "";
 
   if (header) {
-    fetch("/components/header.html")
+    fetch(`${prefix}/components/header.html`)
       .then((response) => response.text())
       .then((data) => {
         header.innerHTML = data;
 
-        const currentPath = window.location.pathname;
+        const currentPath = window.location.pathname.slice(1);
+        const siteLogo = header.querySelector(".site-logo");
+        siteLogo.setAttribute("href", `${prefix}index.html`);
         const headerLinks = header.querySelectorAll(".nav-links a");
 
         headerLinks.forEach((link) => {
           const currentHref = link.getAttribute("href");
+          link.setAttribute("href", `${prefix}${currentHref}`);
 
           if (currentHref === currentPath) {
             link.setAttribute("aria-current", "page");
@@ -24,10 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (footer) {
-    fetch("/components/footer.html")
+    fetch(`${prefix}/components/footer.html`)
       .then((response) => response.text())
       .then((data) => {
         footer.innerHTML = data;
+
+        const footerLinks = footer.querySelectorAll(".footer-resources a");
+
+        footerLinks.forEach((link) => {
+          const currentHref = link.getAttribute("href");
+          link.setAttribute("href", `${prefix}${currentHref}`);
+        });
 
         const yearDate = footer.querySelector("#year");
         if (yearDate) {
