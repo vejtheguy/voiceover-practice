@@ -4,12 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefix = document.body.getAttribute("data-path-prefix") || "";
 
   if (header) {
-    fetch(`${prefix}/components/header.html`)
+    fetch(`${prefix}components/header.html`)
       .then((response) => response.text())
       .then((data) => {
         header.innerHTML = data;
 
         const currentPath = window.location.pathname;
+        const cleanPath = currentPath.slice(currentPath.lastIndexOf("/") + 1);
+
         const siteLogo = header.querySelector(".site-logo");
         siteLogo.setAttribute("href", `${prefix}index.html`);
         const headerLinks = header.querySelectorAll(".nav-links a");
@@ -18,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const currentHref = link.getAttribute("href");
           link.setAttribute("href", `${prefix}${currentHref}`);
 
-          if (currentHref === currentPath) {
+          const cleanHref = currentHref.slice(currentHref.lastIndexOf("/") + 1);
+
+          if (cleanHref === cleanPath) {
             link.setAttribute("aria-current", "page");
           } else {
             link.removeAttribute("aria-current");
@@ -28,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (footer) {
-    fetch(`${prefix}/components/footer.html`)
+    fetch(`${prefix}components/footer.html`)
       .then((response) => response.text())
       .then((data) => {
         footer.innerHTML = data;
