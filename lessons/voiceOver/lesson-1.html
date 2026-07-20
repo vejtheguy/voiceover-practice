@@ -16,44 +16,48 @@
 </head>
 
 <body data-path-prefix="../../">
-    <header id="global-header"></header>
+    <div class="layout-wrapper-flex">
+        <header id="global-header"></header>
 
-    <main class="container" id="main-content">
-        <div class="lesson-intro">
-            <h1>Lesson 1: Activating Items</h1>
-            <p>In order to click on something using VoiceOver, double tap anywhere on the screen when you have it
-                selected.
-            </p>
-        </div>
+        <main class="container" id="main-content">
+            <div class="lesson-intro">
+                <h1>Lesson 1: Activating Items</h1>
+                <p>In order to click on something using VoiceOver, double tap anywhere on the screen when you have it
+                    selected.
+                </p>
+            </div>
 
-        <section class="task-section">
-            <h2>Split-tap Gesture</h2>
-            <p>Another useful way to activate an item is to touch and hold the item you want to click with one finger,
-                and while that is being held, tap another finger down on the screen.</p>
-            <p>Try clicking the button below using the split-tap gesture.</p>
-            <button id="toggle-btn" aria-pressed="false" class="button-link">Activate Me</button>
-            <script>
-                const button = document.getElementById('toggle-btn');
-                button.addEventListener('click', () => {
-                    const isPressed = button.getAttribute('aria-pressed') === 'true';
-                    button.setAttribute('aria-pressed', String(!isPressed));
-                })
-            </script>
-        </section>
+            <section class="task-section">
+                <h2>Split-tap Gesture</h2>
+                <p>Another useful way to activate an item is to touch and hold the item you want to click with one
+                    finger,
+                    and while that is being held, tap another finger down on the screen.</p>
+                <p>Try clicking the button below using the split-tap gesture.</p>
+                <button id="toggle-btn" aria-pressed="false" class="button-link">Activate Me</button>
+                <script>
+                    const button = document.getElementById('toggle-btn');
+                    button.addEventListener('click', () => {
+                        const isPressed = button.getAttribute('aria-pressed') === 'true';
+                        button.setAttribute('aria-pressed', String(!isPressed));
+                    })
+                </script>
+            </section>
 
-        <section class="task-section">
-            <h2>Task: Go to next lesson</h2>
-            <p>Single tap on to the link below. VoiceOver will state the text and that this is a link.</p>
-            <p>This will be used
-                to navigate between lessons. VoiceOver will also say when you have reached the bottom of the HTML main
-                tag,
-                stating "end, main".</p>
-            <p>With the link selected, double tap anywhere on the screen to click it.</p>
-            <a class="button-link" href="./lesson-2.html">Go to Lesson 2</a>
-        </section>
-    </main>
+            <section class="task-section">
+                <h2>Task: Go to next lesson</h2>
+                <p>Single tap on to the link below. VoiceOver will state the text and that this is a link.</p>
+                <p>This will be used
+                    to navigate between lessons. VoiceOver will also say when you have reached the bottom of the HTML
+                    main
+                    tag,
+                    stating "end, main".</p>
+                <p>With the link selected, double tap anywhere on the screen to click it.</p>
+                <a class="button-link" href="./lesson-2.html">Go to Lesson 2</a>
+            </section>
+        </main>
+    </div>
 
-    <div id="global-footer"></div>
+    <footer id="global-footer"></footer>
 </body>
 
 </html>

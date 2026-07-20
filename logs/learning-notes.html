@@ -16,201 +16,235 @@
 </head>
 
 <body data-path-prefix="../">
-    <header id="global-header"></header>
+    <div class="layout-wrapper-grid">
+        <header id="global-header"></header>
 
-    <main class="container" id="main-content">
-        <section>
-            <h1 id="top"><span aria-hidden="true">A11y Field Notes</span><span class="visually-hidden">Accessibility
-                    Field
-                    Notes</span>
-            </h1>
-            <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
-        </section>
-        <nav class="log-contents" aria-labelledby="toc-heading">
-            <h2 id="toc-heading" class="visually-hidden">Table of Contents</h2>
-            <ul class="log-list">
-                <li><a href="#alt-text">Writing Alt Text</a></li>
-                <li><a href="#hiding-h2">Using Hidden Headings inside Navigation Elements</a></li>
-                <li><a href="#anchor-focus">Anchor Focus Using JavaScript</a></li>
-                <li><a href="#page-focus">Page Navigation Focus</a></li>
-                <li><a href="#abbr">Screen Readers and Abbreviations</a></li>
-                <li><a href="#opening-links">Opening Links</a></li>
-            </ul>
-        </nav>
-        <article class="log-card" id="alt-text" aria-labelledby="alt">
-            <header class="log-header">
-                <h2 id="alt">Writing Alt Text</h2>
-                <a href="https://afb.org/digital-inclusion/accessibility-resources/writing-effective-image-descriptions"
-                    class="wcag-link">
-                    Writing Effective Image Descriptions
-                </a>
-                <a href="https://youtu.be/-6PxJxD08RI?si=zOtkl2jm5L3KTAE6" class="wcag-link">
-                    How to Write Good Alt Text - YouTube Video
-                </a>
-            </header>
-            <div class="log-body">
-                <p>Alt text is an essential way to describe non-text content, such as images, to screen reader users.
-                    Context is extremely
-                    important and should help with how you go about describing a graphic element. It's also good to try
-                    and keep
-                    descriptions short (1 to 2 sentences) so as to not overwhelm the reader.
-                </p>
+        <aside aria-label="Table of Contents">
+            <nav aria-labelledby="toc-heading">
+                <h2 id="toc-heading">Notes Directory</h2>
+                <div class="log-contents">
+                    <ul class="log-list">
+                        <li><a href="#alt-text">Writing Alt Text</a></li>
+                        <li><a href="#hiding-h2">Using Hidden Headings inside Navigation Elements</a></li>
+                        <li><a href="#anchor-focus">Anchor Focus Using JavaScript</a></li>
+                        <li><a href="#page-focus">Page Navigation Focus</a></li>
+                        <li><a href="#abbr">Screen Readers and Abbreviations</a></li>
+                        <li><a href="#opening-links">Opening Links</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <main class="container" id="main-content">
+            <section>
+                <h1 id="top"><span aria-hidden="true">A11y Field Notes</span><span class="visually-hidden">Accessibility
+                        Field
+                        Notes</span>
+                </h1>
+                <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
+            </section>
 
-                <strong>Three common image types:</strong>
-                <ol>
-                    <li><strong>Informative:</strong> The page loses meaning if the image is removed. Provide a concise,
-                        context-aware description.</li>
-                    <li><strong>Functional:</strong> The image acts as a clickable link or button. Describe the
-                        destination or action, not the visual appearance of the icon.</li>
-                    <li><strong>Decorative:</strong> The image is a background graphic or visual spacer that provides no
-                        unique content. Use a null attribute (alt="") to
-                        tell the screen reader to silently skip over it; otherwise, the screen reader may default to
-                        reading the raw file name
-                        aloud.</li>
-                </ol>
+            <article class="log-card" id="alt-text" aria-labelledby="alt">
+                <header class="log-header">
+                    <h2 id="alt">Writing Alt Text</h2>
+                    <a href="https://afb.org/digital-inclusion/accessibility-resources/writing-effective-image-descriptions"
+                        class="wcag-link">
+                        Writing Effective Image Descriptions
+                    </a>
+                    <a href="https://youtu.be/-6PxJxD08RI?si=zOtkl2jm5L3KTAE6" class="wcag-link">
+                        How to Write Good Alt Text - YouTube Video
+                    </a>
+                </header>
+                <div class="log-body">
+                    <p>Alt text is an essential way to describe non-text content, such as images, to screen reader
+                        users.
+                        Context is extremely
+                        important and should help with how you go about describing a graphic element. It's also good to
+                        try
+                        and keep
+                        descriptions short (1 to 2 sentences) so as to not overwhelm the reader.
+                    </p>
 
-                <p><strong>Bad Phrases:</strong> Do not use the phrases "image of" or "picture of." Screen readers
-                    automatically announce the element as
-                    a graphic.</p>
-                <p><strong>Proper Grammar:</strong> Always use correct grammar and end sentences with a period. This
-                    creates natural pauses for screen readers.
-                    Additionally, if an image fails to load, sighted users will be able to read a clean text description
-                    instead.</p>
-                <p><strong>Compliance:</strong> This practice is tied directly to <a class="wcag-link"
-                        href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content">WCAG Success Criterion 1.1.1
-                        (Non-text Content)</a>, which mandates that all non-text
-                    content must have a text alternative that serves an equivalent purpose.</p>
+                    <strong>Three common image types:</strong>
+                    <ol>
+                        <li><strong>Informative:</strong> The page loses meaning if the image is removed. Provide a
+                            concise,
+                            context-aware description.</li>
+                        <li><strong>Functional:</strong> The image acts as a clickable link or button. Describe the
+                            destination or action, not the visual appearance of the icon.</li>
+                        <li><strong>Decorative:</strong> The image is a background graphic or visual spacer that
+                            provides no
+                            unique content. Use a null attribute (alt="") to
+                            tell the screen reader to silently skip over it; otherwise, the screen reader may default to
+                            reading the raw file name
+                            aloud.</li>
+                    </ol>
 
-            </div>
-        </article>
-        <article class="log-card" id="hiding-h2" aria-labelledby="hiddenHeadings">
-            <header class="log-header">
-                <h2 id="hiddenHeadings">Using Hidden Headings inside Navigation Elements</h2>
-                <a href="https://www.a11y-collective.com/blog/visually-hidden/" class="wcag-link">
-                    Visually Hidden CSS Techniques
-                </a>
-            </header>
-            <div class="log-body">
-                <p>
-                    When wrapping a list of links inside a native nav element without a heading, I noticed that the
-                    screen reader tends to
-                    over-announce structural information. Because there is no explicit label for the navigation block,
-                    the screen reader
-                    will often combine the landmark, list, and first link data into a single, long, repetitive
-                    announcement.
-                </p>
+                    <p><strong>Bad Phrases:</strong> Do not use the phrases "image of" or "picture of." Screen readers
+                        automatically announce the element as
+                        a graphic.</p>
+                    <p><strong>Proper Grammar:</strong> Always use correct grammar and end sentences with a period. This
+                        creates natural pauses for screen readers.
+                        Additionally, if an image fails to load, sighted users will be able to read a clean text
+                        description
+                        instead.</p>
+                    <p><strong>Compliance:</strong> This practice is tied directly to <a class="wcag-link"
+                            href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content">WCAG Success Criterion
+                            1.1.1
+                            (Non-text Content)</a>, which mandates that all non-text
+                        content must have a text alternative that serves an equivalent purpose.</p>
 
-                <strong>My Implementation:</strong>
+                </div>
+            </article>
+            <article class="log-card" id="hiding-h2" aria-labelledby="hiddenHeadings">
+                <header class="log-header">
+                    <h2 id="hiddenHeadings">Using Hidden Headings inside Navigation Elements</h2>
+                    <a href="https://www.a11y-collective.com/blog/visually-hidden/" class="wcag-link">
+                        Visually Hidden CSS Techniques
+                    </a>
+                </header>
+                <div class="log-body">
+                    <p>
+                        When wrapping a list of links inside a native nav element without a heading, I noticed that the
+                        screen reader tends to
+                        over-announce structural information. Because there is no explicit label for the navigation
+                        block,
+                        the screen reader
+                        will often combine the landmark, list, and first link data into a single, long, repetitive
+                        announcement.
+                    </p>
 
-                <p>To fix this, I found that we can add a visually hidden h2 element at the beginning of the nav block
-                    and link it to the
-                    container using an id and the aria-labelledby attribute. Adding this heading allows the screen
-                    reader to announce the
-                    heading title first to establish context, resulting in a much cleaner and more natural experience
-                    for a screen reader
-                    user.</p>
+                    <strong>My Implementation:</strong>
 
-            </div>
-        </article>
-        <article class="log-card" id="anchor-focus" aria-labelledby="focus">
-            <header class="log-header">
-                <h2 id="focus">Anchor Focus Using JavaScript</h2>
-            </header>
-            <div class="log-body">
-                <p>
-                    In order for multiple in-page anchor links on a webpage to work reliably with screen readers, custom
-                    JavaScript must be
-                    implemented. Without it, a screen reader can get stuck repeating the link text or focusing on an
-                    incorrect location
-                    after a jump. This happens because the browser's accessibility focus remains locked onto the clicked
-                    link. When the
-                    screen reader tries to continue reading from that original position, it conflicts with the visual
-                    scroll, causing the
-                    viewport to snap back or get stuck at an unpredictable location.
-                </p>
+                    <p>To fix this, I found that we can add a visually hidden h2 element at the beginning of the nav
+                        block
+                        and link it to the
+                        container using an id and the aria-labelledby attribute. Adding this heading allows the screen
+                        reader to announce the
+                        heading title first to establish context, resulting in a much cleaner and more natural
+                        experience
+                        for a screen reader
+                        user.</p>
 
-                <strong>My Implementation:</strong>
+                </div>
+            </article>
+            <article class="log-card" id="anchor-focus" aria-labelledby="focus">
+                <header class="log-header">
+                    <h2 id="focus">Anchor Focus Using JavaScript</h2>
+                </header>
+                <div class="log-body">
+                    <p>
+                        In order for multiple in-page anchor links on a webpage to work reliably with screen readers,
+                        custom
+                        JavaScript must be
+                        implemented. Without it, a screen reader can get stuck repeating the link text or focusing on an
+                        incorrect location
+                        after a jump. This happens because the browser's accessibility focus remains locked onto the
+                        clicked
+                        link. When the
+                        screen reader tries to continue reading from that original position, it conflicts with the
+                        visual
+                        scroll, causing the
+                        viewport to snap back or get stuck at an unpredictable location.
+                    </p>
 
-                <p>To fix this, a tabindex of -1 is programmatically applied to the target element (like an article or
-                    heading). This opens
-                    up the static element to receive focus, allowing us to utilize JavaScript's <code>.focus()</code>
-                    method to physically
-                    move the screen reader's focus directly to that section of the page.</p>
-                <p><em>Note:</em> Single "skip to main content" links at the very top of a page often handle the
-                    native anchor focus with no issues. However, when navigating between multiple anchor targets across
-                    the
-                    same page,
-                    JavaScript focus management is required to prevent screen reader confusion.</p>
-            </div>
-        </article>
-        <article class="log-card" id="page-focus" aria-labelledby="navigation">
-            <header class="log-header">
-                <h2 id="navigation">Page Navigation Focus</h2>
-            </header>
-            <div class="log-body">
-                <strong>My Implementation:</strong>
-                <p>
-                    I noticed that sometimes when I would click on one of the links on my website and it opened a new
-                    page,
-                    the screen reader would get stuck repeating the link information from the previous page, or begin
-                    reading
-                    from a random element on the page. To fix this issue, I utilized <strong>JavaScript</strong> to set
-                    the
-                    focus to the <code>&lt;h1&gt;</code> element of the page when loaded. A slight delay needed to be
-                    added;
-                    otherwise, the JavaScript focus method would trigger before the screen reader had fully loaded the
-                    new DOM content.
-                </p>
-            </div>
-        </article>
-        <article class="log-card" id="abbr" aria-labelledby="screenReader">
-            <header class="log-header">
-                <h2 id="screenReader">Screen Readers and Abbreviations</h2>
-            </header>
-            <div class="log-body">
-                <p>Using the <strong>&lt;abbr&gt;</strong> element is the appropriate way to help screen readers
-                    properly
-                    pronounce
-                    abbreviations or acronyms. Sadly, some screen readers, such as VoiceOver, ignore this element and
-                    will pronounce the abbreviation instead of the full word or phrase.
-                    For example, VoiceOver would typically read <strong>A11y</strong> as "A eleven y" or "A one
-                    one y"
-                    instead of "Accessibility".
-                </p>
-                <strong>My Implementation:</strong>
-                <p>The workaround to fix this issue is to utilize visually hidden text. By wrapping the abbreviation in
-                    a span tag with
-                    aria-hidden="true", we can hide it from the screen reader entirely. Right next to it, we can place a
-                    second span tag
-                    containing the full word wrapped in a visually-hidden class. This makes it so sighted users see the
-                    abbreviation, while the
-                    screen reader bypasses it completely to read the full word instead.</p>
-            </div>
-        </article>
-        <article class="log-card" id="opening-links" aria-labelledby="openLinks">
-            <header class="log-header">
-                <h2 id="openLinks">Opening Links</h2>
-                <a href="https://theadminbar.com/accessibility-weekly/opening-links-in-new-tabs-or-not/"
-                    class="wcag-link">
-                    Opening Links in New Tabs (or Not)
-                </a>
-            </header>
+                    <strong>My Implementation:</strong>
 
-            <div class="log-body">
-                <strong>My Implementation:</strong>
-                <p>I have always created links on my webpages using <code>target="_blank"</code> to open them in new
-                    tabs. For most
-                    screen readers though, this causes a problem and complexity for the user. To avoid this, I have left
-                    links to open in the same tab by default. I believe this issue is tied to <a class="wcag-link"
-                        href="https://www.w3.org/WAI/WCAG21/Understanding/change-on-request.html">WCAG 3.2.5</a>, where
-                    users should have full control of major content changes.
-                </p>
-            </div>
-        </article>
-        <a href="#top" class="back-to-top-link">Back to Top</a>
-    </main>
+                    <p>To fix this, a tabindex of -1 is programmatically applied to the target element (like an article
+                        or
+                        heading). This opens
+                        up the static element to receive focus, allowing us to utilize JavaScript's
+                        <code>.focus()</code>
+                        method to physically
+                        move the screen reader's focus directly to that section of the page.
+                    </p>
+                    <p><em>Note:</em> Single "skip to main content" links at the very top of a page often handle the
+                        native anchor focus with no issues. However, when navigating between multiple anchor targets
+                        across
+                        the
+                        same page,
+                        JavaScript focus management is required to prevent screen reader confusion.</p>
+                </div>
+            </article>
+            <article class="log-card" id="page-focus" aria-labelledby="navigation">
+                <header class="log-header">
+                    <h2 id="navigation">Page Navigation Focus</h2>
+                </header>
+                <div class="log-body">
+                    <strong>My Implementation:</strong>
+                    <p>
+                        I noticed that sometimes when I would click on one of the links on my website and it opened a
+                        new
+                        page,
+                        the screen reader would get stuck repeating the link information from the previous page, or
+                        begin
+                        reading
+                        from a random element on the page. To fix this issue, I utilized <strong>JavaScript</strong> to
+                        set
+                        the
+                        focus to the <code>&lt;h1&gt;</code> element of the page when loaded. A slight delay needed to
+                        be
+                        added;
+                        otherwise, the JavaScript focus method would trigger before the screen reader had fully loaded
+                        the
+                        new DOM content.
+                    </p>
+                </div>
+            </article>
+            <article class="log-card" id="abbr" aria-labelledby="screenReader">
+                <header class="log-header">
+                    <h2 id="screenReader">Screen Readers and Abbreviations</h2>
+                </header>
+                <div class="log-body">
+                    <p>Using the <strong>&lt;abbr&gt;</strong> element is the appropriate way to help screen readers
+                        properly
+                        pronounce
+                        abbreviations or acronyms. Sadly, some screen readers, such as VoiceOver, ignore this element
+                        and
+                        will pronounce the abbreviation instead of the full word or phrase.
+                        For example, VoiceOver would typically read <strong>A11y</strong> as "A eleven y" or "A one
+                        one y"
+                        instead of "Accessibility".
+                    </p>
+                    <strong>My Implementation:</strong>
+                    <p>The workaround to fix this issue is to utilize visually hidden text. By wrapping the abbreviation
+                        in
+                        a span tag with
+                        aria-hidden="true", we can hide it from the screen reader entirely. Right next to it, we can
+                        place a
+                        second span tag
+                        containing the full word wrapped in a visually-hidden class. This makes it so sighted users see
+                        the
+                        abbreviation, while the
+                        screen reader bypasses it completely to read the full word instead.</p>
+                </div>
+            </article>
+            <article class="log-card" id="opening-links" aria-labelledby="openLinks">
+                <header class="log-header">
+                    <h2 id="openLinks">Opening Links</h2>
+                    <a href="https://theadminbar.com/accessibility-weekly/opening-links-in-new-tabs-or-not/"
+                        class="wcag-link">
+                        Opening Links in New Tabs (or Not)
+                    </a>
+                </header>
 
-    <div id="global-footer"></div>
+                <div class="log-body">
+                    <strong>My Implementation:</strong>
+                    <p>I have always created links on my webpages using <code>target="_blank"</code> to open them in new
+                        tabs. For most
+                        screen readers though, this causes a problem and complexity for the user. To avoid this, I have
+                        left
+                        links to open in the same tab by default. I believe this issue is tied to <a class="wcag-link"
+                            href="https://www.w3.org/WAI/WCAG21/Understanding/change-on-request.html">WCAG 3.2.5</a>,
+                        where
+                        users should have full control of major content changes.
+                    </p>
+                </div>
+            </article>
+            <a href="#top" class="back-to-top-link">Back to Top</a>
+        </main>
+    </div>
+
+    <footer id="global-footer"></footer>
     <script>
         document.querySelectorAll('ul.log-list li a').forEach(link => {
             link.addEventListener('click', (e) => {
