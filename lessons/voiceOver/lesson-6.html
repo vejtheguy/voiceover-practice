@@ -16,59 +16,61 @@
 </head>
 
 <body data-path-prefix="../../">
-    <header id="global-header"></header>
+    <div class="layout-wrapper-flex">
+        <header id="global-header"></header>
 
-    <main class="container" id="main-content">
-        <div class="lesson-intro">
-            <h1>Lesson 6: Go Back or Escape</h1>
-            <p>This gesture is useful for when you need to close a pop-up or sub-menu. You can think of it as
-                the back button or escape key.</p>
-        </div>
-
-        <section class="task-section">
-            <h2>Scrub Gesture</h2>
-            <p>Using two fingers together, scrub back and forth three times on the screen.</p>
-            <p>Best if done in a <strong>Z</strong> shape. To do this, slide from left to right, then diagonally down
-                to the left, and then slide to the right again.</p>
-        </section>
-
-        <section class="task-section">
-            <h2>Scrub: Exit the Pop-up</h2>
-            <p>Click on the button below and a pop-up will appear on the screen.</p>
-            <p>Use the two finger scrub gesture to close out of the pop-up.</p>
-            <div class="inner-section">
-                <button id="trigger-popup" class="button-link">Click Me
-                    for a Pop-up</button>
-                <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-heading" class="popup">
-                    <h3 id="popup-heading">Pop-up Practice</h3>
-                    <p>This is a pop-up box. Use the two finger scrub gesture to close it.</p>
-                    <p><em>Tip:</em> If using a keyboard, use the Escape key to close this.</p>
-                </div>
+        <main class="container" id="main-content">
+            <div class="lesson-intro">
+                <h1>Lesson 6: Go Back or Escape</h1>
+                <p>This gesture is useful for when you need to close a pop-up or sub-menu. You can think of it as
+                    the back button or escape key.</p>
             </div>
-            <script>
-                const btn = document.getElementById('trigger-popup');
-                const popup = document.getElementById('popup');
 
-                btn.addEventListener('click', () => {
-                    popup.style.display = 'flex';
-                    popup.setAttribute('tabindex', '-1');
-                    popup.focus();
-                });
+            <section class="task-section">
+                <h2>Scrub Gesture</h2>
+                <p>Using two fingers together, scrub back and forth three times on the screen.</p>
+                <p>Best if done in a <strong>Z</strong> shape. To do this, slide from left to right, then diagonally
+                    down
+                    to the left, and then slide to the right again.</p>
+            </section>
 
-                document.addEventListener('keydown', (event) => {
-                    if (event.key === 'Escape' && popup.style.display === 'flex') {
-                        popup.style.display = 'none';
-                        btn.focus();
-                    }
-                });
-            </script>
-        </section>
+            <section class="task-section">
+                <h2>Scrub: Exit the Pop-up</h2>
+                <p>Click on the button below and a pop-up will appear on the screen.</p>
+                <p>Use the two finger scrub gesture to close out of the pop-up.</p>
+                <div class="inner-section">
+                    <button id="trigger-popup" class="button-link">Click Me
+                        for a Pop-up</button>
+                    <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-heading" class="popup">
+                        <h3 id="popup-heading">Pop-up Practice</h3>
+                        <p>This is a pop-up box. Use the two finger scrub gesture to close it.</p>
+                        <p><em>Tip:</em> If using a keyboard, use the Escape key to close this.</p>
+                    </div>
+                </div>
+                <script>
+                    const btn = document.getElementById('trigger-popup');
+                    const popup = document.getElementById('popup');
 
-        <a class="button-link" href="./lesson-7.html">Go to Lesson 7</a>
+                    btn.addEventListener('click', () => {
+                        popup.style.display = 'flex';
+                        popup.setAttribute('tabindex', '-1');
+                        popup.focus();
+                    });
 
-    </main>
+                    document.addEventListener('keydown', (event) => {
+                        if (event.key === 'Escape' && popup.style.display === 'flex') {
+                            popup.style.display = 'none';
+                            btn.focus();
+                        }
+                    });
+                </script>
+            </section>
 
-    <div id="global-footer"></div>
+            <a class="button-link" href="./lesson-7.html">Go to Lesson 7</a>
+        </main>
+    </div>
+
+    <footer id="global-footer"></footer>
 </body>
 
 </html>

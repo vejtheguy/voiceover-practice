@@ -79,7 +79,6 @@ li {
   width: 100%;
   max-width: 80ch;
   margin: 0 auto;
-  padding: 0 2.5rem;
 }
 
 main.container {
@@ -87,6 +86,32 @@ main.container {
   flex-direction: column;
   gap: 2rem;
   flex: 1 0 auto;
+  max-width: 80ch;
+}
+
+.layout-wrapper-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0 1.25rem;
+}
+
+.layout-wrapper-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1.25rem;
+  flex-grow: 1;
+}
+
+header,
+aside,
+main {
+  grid-column: 1;
+}
+
+aside {
+  position: static;
+  max-height: none;
 }
 
 .back-link {
@@ -317,12 +342,12 @@ code {
   color: var(--color-red-40);
 }
 
-.footer {
+footer {
   background-color: var(--color-gray-20);
   box-shadow: rgba(0, 0, 0, 0.16) 0px -2px 8px;
-  padding: 2.5rem 0;
+  padding: 2.5rem 1.25rem;
   font-size: 1.3rem;
-  margin-top: 3rem;
+  margin-top: 6rem;
   color: var(--color-gray-90);
 }
 
@@ -331,14 +356,19 @@ code {
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .footer p {
   margin: 0;
+  font-size: 1.3rem;
 }
 
 .log-contents {
-  padding: 1rem 0;
+  padding: 2rem 0;
   border-top: 2px solid var(--color-gray-30);
   border-bottom: 2px solid var(--color-gray-30);
 }
@@ -347,19 +377,19 @@ code {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-left: -0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
 }
 
 .log-list a {
+  display: block;
   color: var(--color-blue-50);
   text-decoration: underline;
   text-underline-offset: 0.4rem;
   font-weight: 500;
   border-radius: 4px;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   outline: 3px solid transparent;
   outline-offset: 2px;
   font-size: 1.3rem;
@@ -524,6 +554,56 @@ code {
   text-underline-offset: 0.4rem;
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+@media (min-width: 1024px) {
+  .layout-wrapper-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  .layout-wrapper-flex {
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  header {
+    grid-column: 1 / -1;
+  }
+
+  .site-header {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  main {
+    grid-column: 2;
+  }
+
+  aside {
+    grid-column: 1;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+  }
+
+  footer {
+    padding: 2.5rem;
+  }
+
+  .footer-container {
+    padding: 2.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
 }
 
 @media (min-width: 768px) {

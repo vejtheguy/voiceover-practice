@@ -16,145 +16,160 @@
 </head>
 
 <body data-path-prefix="../">
-    <header id="global-header"></header>
-
-    <main class="container" id="main-content">
-        <section>
-            <h1 id="top">WCAG Reference Log</h1>
-            <p>Learning about WCAG compliance and how I have been applying it on this practice website.</p>
-        </section>
-        <nav class="log-contents" aria-label="Table of Contents">
-            <ul class="log-list">
-                <li><a href="#non-text">Non-text Content</a></li>
-                <li><a href="#reflow">Reflow</a></li>
-                <li><a href="#contrast-enhanced">Contrast (Enhanced)</a></li>
-                <li><a href="#contrast-minimum">Contrast (Minimum)</a></li>
-                <li><a href="#resize-text">Resize Text</a></li>
-            </ul>
-        </nav>
-
-        <article class="log-card" id="non-text" aria-labelledby="non-text">
-            <header class="log-header">
-                <h2 id="non-text">Non-text Content (Level A)</h2>
-                <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html" class="wcag-link">
-                    Official Guideline: WCAG 1.1.1
-                </a>
-            </header>
-
-            <div class="log-body">
-                <div class="criterion-box">
-                    <strong>The WCAG Goal:</strong>
-                    <p>All non-text content that is presented to the user has a text alternative that serves an
-                        equivalent purpose.</p>
+    <div class="layout-wrapper-grid">
+        <header id="global-header"></header>
+        <aside aria-label="Table of Contents">
+            <nav aria-labelledby="toc-heading">
+                <h2 id="toc-heading">WCAG Directory</h2>
+                <div class="log-contents">
+                    <ul class="log-list">
+                        <li><a href="#non-text">Non-text Content</a></li>
+                        <li><a href="#reflow">Reflow</a></li>
+                        <li><a href="#contrast-enhanced">Contrast (Enhanced)</a></li>
+                        <li><a href="#contrast-minimum">Contrast (Minimum)</a></li>
+                        <li><a href="#resize-text">Resize Text</a></li>
+                    </ul>
                 </div>
+            </nav>
+        </aside>
 
-                <strong>My Implementation:</strong>
-                <p>The non-text content I have used on this site (primarily demo images to practice screen reading) all
-                    have the
-                    appropriate alt text tied to them. This provides non-visual users with context about the content
-                    being presented on the
-                    page.
-                </p>
-            </div>
-        </article>
-        <article class="log-card" id="reflow" aria-labelledby="reflow">
-            <header class="log-header">
-                <h2 id="reflow">Reflow (Level AA)</h2>
-                <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" class="wcag-link">
-                    Official Guideline: WCAG 1.4.10
-                </a>
-            </header>
+        <main class="container" id="main-content">
+            <section>
+                <h1 id="top">WCAG Reference Log</h1>
+                <p>Learning about WCAG compliance and how I have been applying it on this practice website.</p>
+            </section>
 
-            <div class="log-body">
-                <div class="criterion-box">
-                    <strong>The WCAG Goal:</strong>
-                    <p>Content can be enlarged without increasing line length. There is no loss of information or
-                        functionality, and without requiring scrolling in two dimensions.</p>
+            <article class="log-card" id="non-text" aria-labelledby="non-text">
+                <header class="log-header">
+                    <h2 id="non-text">Non-text Content (Level A)</h2>
+                    <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html" class="wcag-link">
+                        Official Guideline: WCAG 1.1.1
+                    </a>
+                </header>
+
+                <div class="log-body">
+                    <div class="criterion-box">
+                        <strong>The WCAG Goal:</strong>
+                        <p>All non-text content that is presented to the user has a text alternative that serves an
+                            equivalent purpose.</p>
+                    </div>
+
+                    <strong>My Implementation:</strong>
+                    <p>The non-text content I have used on this site (primarily demo images to practice screen reading)
+                        all
+                        have the
+                        appropriate alt text tied to them. This provides non-visual users with context about the content
+                        being presented on the
+                        page.
+                    </p>
                 </div>
+            </article>
+            <article class="log-card" id="reflow" aria-labelledby="reflow">
+                <header class="log-header">
+                    <h2 id="reflow">Reflow (Level AA)</h2>
+                    <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" class="wcag-link">
+                        Official Guideline: WCAG 1.4.10
+                    </a>
+                </header>
 
-                <strong>My Implementation:</strong>
-                <p>I achieved this by primarily using <code>rem</code> units for all of my font-sizing and layout
-                    spacing. I also used display <code>flex</code> for my layout structure, allowing me to make sure
-                    content is responsive and reflows properly when the viewport size changes.
-                </p>
-            </div>
-        </article>
-        <article class="log-card" id="contrast-enhanced" aria-labelledby="contrast">
-            <header class="log-header">
-                <h2 id="contrast">Contrast (Enhanced) (Level AAA)</h2>
-                <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html" class="wcag-link">
-                    Official Guideline: WCAG 1.4.6
-                </a>
-            </header>
+                <div class="log-body">
+                    <div class="criterion-box">
+                        <strong>The WCAG Goal:</strong>
+                        <p>Content can be enlarged without increasing line length. There is no loss of information or
+                            functionality, and without requiring scrolling in two dimensions.</p>
+                    </div>
 
-            <div class="log-body">
-                <div class="criterion-box">
-                    <strong>The WCAG Goal:</strong>
-                    <p>Visual presentation of text has a contrast ratio of at least 7:1, or large-scale text have
-                        contrast ratio 4.5:1.</p>
+                    <strong>My Implementation:</strong>
+                    <p>I achieved this by primarily using <code>rem</code> units for all of my font-sizing and layout
+                        spacing. I also used display <code>flex</code> for my layout structure, allowing me to make sure
+                        content is responsive and reflows properly when the viewport size changes.
+                    </p>
                 </div>
+            </article>
+            <article class="log-card" id="contrast-enhanced" aria-labelledby="contrast">
+                <header class="log-header">
+                    <h2 id="contrast">Contrast (Enhanced) (Level AAA)</h2>
+                    <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html" class="wcag-link">
+                        Official Guideline: WCAG 1.4.6
+                    </a>
+                </header>
 
-                <strong>My Implementation:</strong>
-                <p>I believe I have achieved this across all of the text content on this website. This WCAG goal is just
-                    a much more intense version of the previous contrast requirement, which I have met well above the
-                    <strong>7:1</strong> ratio on most things. Some of the blue text on gray background is lower, but I
-                    think because of the font-size being larger, I am still meeting the requirement of
-                    <strong>4.5:1</strong> for
-                    large-scale text.
-                </p>
-            </div>
-        </article>
-        <article class="log-card" id="contrast-minimum" aria-labelledby="contrast2">
-            <header class="log-header">
-                <h2 id="contrast2">Contrast (Minimum) (Level AA)</h2>
-                <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" class="wcag-link">
-                    Official Guideline: WCAG 1.4.3
-                </a>
-            </header>
+                <div class="log-body">
+                    <div class="criterion-box">
+                        <strong>The WCAG Goal:</strong>
+                        <p>Visual presentation of text has a contrast ratio of at least 7:1, or large-scale text have
+                            contrast ratio 4.5:1.</p>
+                    </div>
 
-            <div class="log-body">
-                <div class="criterion-box">
-                    <strong>The WCAG Goal:</strong>
-                    <p>Visual presentation of text has a contrast ratio of at least 4.5:1, or large-scale text have
-                        contrast ratio 3:1.</p>
+                    <strong>My Implementation:</strong>
+                    <p>I believe I have achieved this across all of the text content on this website. This WCAG goal is
+                        just
+                        a much more intense version of the previous contrast requirement, which I have met well above
+                        the
+                        <strong>7:1</strong> ratio on most things. Some of the blue text on gray background is lower,
+                        but I
+                        think because of the font-size being larger, I am still meeting the requirement of
+                        <strong>4.5:1</strong> for
+                        large-scale text.
+                    </p>
                 </div>
+            </article>
+            <article class="log-card" id="contrast-minimum" aria-labelledby="contrast2">
+                <header class="log-header">
+                    <h2 id="contrast2">Contrast (Minimum) (Level AA)</h2>
+                    <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" class="wcag-link">
+                        Official Guideline: WCAG 1.4.3
+                    </a>
+                </header>
 
-                <strong>My Implementation:</strong>
-                <p>I utilized the Google Chrome extension <em>Colour Contrast Checker</em> to analyze the contrast ratio
-                    of my text and background colors. This actually made it easier for me to choose color combinations
-                    as I was designing the website. For example, this color text is a very dark gray
-                    (<code>#191919</code>) on a
-                    white background (<code>#ffffff</code>), giving me a contrast ration of <strong>17.58:1</strong>,
-                    which is well above the minimum
-                    requirement of <strong>4.5:1</strong>.
-                </p>
-            </div>
-        </article>
-        <article class="log-card" id="resize-text" aria-labelledby="resize">
-            <header class="log-header">
-                <h2 id="resize">Resize Text (Level AA)</h2>
-                <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html" class="wcag-link">
-                    Official Guideline: WCAG 1.4.4
-                </a>
-            </header>
-            <div class="log-body">
-                <div class="criterion-box">
-                    <strong>The WCAG Goal:</strong>
-                    <p>Ensure text is adaptive and resizable up to 200% (doubled in size) without loss of content,
-                        functionality, or breaking the layout structure.</p>
+                <div class="log-body">
+                    <div class="criterion-box">
+                        <strong>The WCAG Goal:</strong>
+                        <p>Visual presentation of text has a contrast ratio of at least 4.5:1, or large-scale text have
+                            contrast ratio 3:1.</p>
+                    </div>
+
+                    <strong>My Implementation:</strong>
+                    <p>I utilized the Google Chrome extension <em>Colour Contrast Checker</em> to analyze the contrast
+                        ratio
+                        of my text and background colors. This actually made it easier for me to choose color
+                        combinations
+                        as I was designing the website. For example, this color text is a very dark gray
+                        (<code>#191919</code>) on a
+                        white background (<code>#ffffff</code>), giving me a contrast ration of
+                        <strong>17.58:1</strong>,
+                        which is well above the minimum
+                        requirement of <strong>4.5:1</strong>.
+                    </p>
                 </div>
+            </article>
+            <article class="log-card" id="resize-text" aria-labelledby="resize">
+                <header class="log-header">
+                    <h2 id="resize">Resize Text (Level AA)</h2>
+                    <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html" class="wcag-link">
+                        Official Guideline: WCAG 1.4.4
+                    </a>
+                </header>
+                <div class="log-body">
+                    <div class="criterion-box">
+                        <strong>The WCAG Goal:</strong>
+                        <p>Ensure text is adaptive and resizable up to 200% (doubled in size) without loss of content,
+                            functionality, or breaking the layout structure.</p>
+                    </div>
 
-                <strong>My Implementation:</strong>
-                <p>I was able to achieve this by utilizing <code>rem</code> units for all of my font-sizing rather than
-                    fixed
-                    <code>px</code> values. This ensures that the text properly scales dynamically based on the root
-                    element
-                    (<code aria-label="HTML tag">&lt;html&gt;</code>).
-                </p>
-            </div>
-        </article>
-        <a href="#top" class="back-to-top-link">Back to Top</a>
-    </main>
+                    <strong>My Implementation:</strong>
+                    <p>I was able to achieve this by utilizing <code>rem</code> units for all of my font-sizing rather
+                        than
+                        fixed
+                        <code>px</code> values. This ensures that the text properly scales dynamically based on the root
+                        element
+                        (<code aria-label="HTML tag">&lt;html&gt;</code>).
+                    </p>
+                </div>
+            </article>
+            <a href="#top" class="back-to-top-link">Back to Top</a>
+        </main>
+    </div>
 
     <div id="global-footer"></div>
     <script>
