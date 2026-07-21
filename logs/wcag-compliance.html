@@ -19,7 +19,7 @@
     <div class="layout-wrapper-grid">
         <header id="global-header"></header>
 
-        <aside>
+        <aside role="none">
             <nav aria-labelledby="toc-heading">
                 <h2 id="toc-heading">WCAG Directory</h2>
                 <div class="log-contents">
@@ -172,7 +172,7 @@
         </main>
     </div>
 
-    <div id="global-footer"></div>
+    <footer id="global-footer"></footer>
     <script>
         document.querySelectorAll('ul.log-list li a').forEach(link => {
             link.addEventListener('click', (e) => {
