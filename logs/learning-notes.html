@@ -24,11 +24,15 @@
                 <h2 id="toc-heading">Notes Directory</h2>
                 <div class="log-contents">
                     <ul class="log-list">
+                        <li><a href="#target-size">Target Sizing by Changing Display Type</a></li>
+                        <li><a href="#aside-none">Avoiding Redundancy (Sidebar Landmark)</a></li>
+                        <li><a href="#nav-headings">Navigational Headings & Hierarchy</a></li>
+                        <li><a href="#label-navs">Labeling Navigation Regions Without Hidden Headings</a></li>
                         <li><a href="#alt-text">Writing Alt Text</a></li>
-                        <li><a href="#hiding-h2">Using Hidden Headings inside Navigation Elements</a></li>
+                        <li><a href="#visual-hide">Visually Hidden Elements</a></li>
                         <li><a href="#anchor-focus">Anchor Focus Using JavaScript</a></li>
                         <li><a href="#page-focus">Page Navigation Focus</a></li>
-                        <li><a href="#abbr">Screen Readers and Abbreviations</a></li>
+                        <li><a href="#abbr-sr">Screen Readers and Abbreviations</a></li>
                         <li><a href="#opening-links">Opening Links</a></li>
                     </ul>
                 </div>
@@ -44,9 +48,137 @@
                 <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
             </section>
 
-            <article class="log-card" id="alt-text" aria-labelledby="alt">
+            <article class="log-card" id="target-size" aria-labelledby="targetSize">
                 <header class="log-header">
-                    <h2 id="alt">Writing Alt Text</h2>
+                    <h2 id="targetSize">Target Sizing by Changing Display Type</h2>
+                </header>
+                <div class="log-body">
+                    <p>Providing large, predictable touch or click areas ensures that users can easily activate links
+                        without missing them.
+                        While text links are traditionally inline, changing their box layout structure alters both
+                        visual layout and interactive
+                        behavior.
+                    </p>
+
+                    <strong>My Implementation:</strong>
+
+                    <p>Instead of leaving my directory links in the sidebar as inline elements, I used CSS to change
+                        their box structure to
+                        <code>display: block</code> (or <code>display: inline-block</code>). By doing this, the links
+                        now have a larger interactive area because they
+                        expand to the full width of the sidebar, rather than only around the small bit of text. This
+                        helps
+                        support <a class="wcag-link"
+                            href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">
+                            WCAG Success
+                            Criterion 2.5.5 (Target Size)</a>, making the links much easier to activate while also
+                        fixing
+                        multi-line text wrapping
+                        alignments (wrapped text no longer has odd indents).
+                    </p>
+
+                </div>
+            </article>
+            <article class="log-card" id="aside-none" aria-labelledby="asideNone">
+                <header class="log-header">
+                    <h2 id="asideNone">Avoiding Redundancy (Sidebar Landmark)</h2>
+                </header>
+                <div class="log-body">
+                    <p>Using semantic HTML like <code>&lt;aside&gt;</code> with a <code>&lt;nav&gt;</code> wrapped
+                        inside it helps create a nice sidebar layout, but nesting these
+                        elements can create redundant chatter for screen reader users. When an
+                        <code>&lt;aside&gt;</code> holds only a table of contents,
+                        announcing both "complementary" (the default announcement for <code>&lt;aside&gt;</code>) and
+                        "navigation" adds unnecessary
+                        verbosity without providing additional context.
+                    </p>
+
+                    <strong>My Implementation:</strong>
+
+                    <p>When building my sidebar directory, I applied role="none" to the outer <code>&lt;aside&gt;</code>
+                        element. This removes the default
+                        "complementary" landmark announcement while still keeping the HTML structure intact. Screen
+                        readers can then focus
+                        directly on the nested <code>&lt;nav&gt;</code> element, which is labeled using aria-labelledby
+                        to match the <code>&lt;h2&gt;</code> living within it.
+                        This keeps the screen reader landmark cleaner and direct (e.g., "Notes Directory, navigation").
+                    </p>
+
+                </div>
+            </article>
+            <article class="log-card" id="nav-headings" aria-labelledby="navHeadings">
+                <header class="log-header">
+                    <h2 id="navHeadings">Navigational Headings & Hierarchy</h2>
+                </header>
+                <div class="log-body">
+                    <p>From my learning and the WCAG guidelines, it is recommended that heading sequences start with an
+                        <code>&lt;h1&gt;</code> and move downward
+                        (<code>&lt;h2&gt;, &lt;h3&gt;</code>). However, modern web layouts often place header menus or
+                        sidebars above or beside the <code>&lt;main&gt;</code> content.
+                        While placing an <code>&lt;h2&gt;</code> in a sidebar before the primary <code>&lt;h1&gt;</code>
+                        seems like a hierarchy violation on paper,
+                        screen reader users rely on these navigational headings as fast jump targets, making this a
+                        practical and widely accepted pattern. It remains best practice to use only one
+                        <code>&lt;h1&gt;</code> per page
+                        for the main topic, while using <code>&lt;h2&gt;</code> tags for major sub-sections.
+                    </p>
+
+                    <strong>My Implementation:</strong>
+
+                    <p>For my header and footer main menu navigations, I removed the hidden <code>&lt;h2&gt;</code>
+                        elements and now only use the ARIA attribute
+                        like <code>aria-label="Main Menu"</code>. On pages
+                        containing a
+                        sidebar directory, I intentionally kept a
+                        visible <code>&lt;h2&gt;</code> heading for both sighted and screen reader users. Although this
+                        <code>&lt;h2&gt;</code> appears in the source order
+                        before my page's <code>&lt;h1&gt;</code>, it provides an essential heading target without
+                        disrupting the overall document
+                        flow.
+                    </p>
+
+                </div>
+            </article>
+            <article class="log-card" id="label-navs" aria-labelledby="labelNavs">
+                <header class="log-header">
+                    <h2 id="labelNavs">Labeling Navigation Regions Without Hidden Headings</h2>
+                </header>
+                <div class="log-body">
+                    <p>Using visually hidden <code>
+                        &lt;h2&gt;
+                    </code> elements was once a common way to provide names for <code>
+                        &lt;nav&gt; 
+                    </code>elements. Modern <code>
+                        &lt;nav&gt;
+                    </code> elements
+                        natively support ARIA labeling attributes, allowing us to bypass the need for hidden heading
+                        elements
+                        entirely. While hidden headings can still occasionally be helpful, they are often unnecessary
+                        because <code>
+                                    &lt;nav&gt;
+                                </code>
+                        elements are easily navigated as standalone landmark regions.
+                    </p>
+
+                    <strong>My Implementation:</strong>
+
+                    <p>Instead of adding extra code to visually hide <code>
+                        &lt;h2&gt;
+                    </code> elements inside my site navigation, I use the aria-label attribute
+                        directly on the <code>
+                            &lt;nav&gt;
+                        </code> element (e.g., <code>
+                            &lt;nav aria-label="Main Menu"&gt;
+                        </code>). This provides a concise announcement from the
+                        screen reader, removes redundant repetition, and still gives users all the context they need to
+                        navigate the
+                        site.</p>
+
+                </div>
+            </article>
+            <article class="log-card" id="alt-text" aria-labelledby="altText">
+                <header class="log-header">
+                    <h2 id="altText">Writing Alt Text</h2>
                     <a href="https://afb.org/digital-inclusion/accessibility-resources/writing-effective-image-descriptions"
                         class="wcag-link">
                         Writing Effective Image Descriptions
@@ -96,41 +228,36 @@
 
                 </div>
             </article>
-            <article class="log-card" id="hiding-h2" aria-labelledby="hiddenHeadings">
+            <article class="log-card" id="visual-hide" aria-labelledby="visualHide">
                 <header class="log-header">
-                    <h2 id="hiddenHeadings">Using Hidden Headings inside Navigation Elements</h2>
+                    <h2 id="visualHide">Visually Hidden Elements</h2>
                     <a href="https://www.a11y-collective.com/blog/visually-hidden/" class="wcag-link">
                         Visually Hidden CSS Techniques
                     </a>
                 </header>
                 <div class="log-body">
                     <p>
-                        When wrapping a list of links inside a native nav element without a heading, I noticed that the
-                        screen reader tends to
-                        over-announce structural information. Because there is no explicit label for the navigation
-                        block,
-                        the screen reader
-                        will often combine the landmark, list, and first link data into a single, long, repetitive
-                        announcement.
+                        Landmark regions can be labeled with ARIA attributes, but there are certain accessibility
+                        features we sometimes want to include, such as a "Skip to main Content" link, which requires
+                        special CSS to hide visually. These features are special because they are hidden from sighted
+                        users, but provide screen reader users additional context and sometimes functionality to make
+                        the user experience more efficient.
                     </p>
 
                     <strong>My Implementation:</strong>
 
-                    <p>To fix this, I found that we can add a visually hidden h2 element at the beginning of the nav
-                        block
-                        and link it to the
-                        container using an id and the aria-labelledby attribute. Adding this heading allows the screen
-                        reader to announce the
-                        heading title first to establish context, resulting in a much cleaner and more natural
-                        experience
-                        for a screen reader
-                        user.</p>
+                    <p>I created a CSS class that uses modern techniques such as <code>clip-path</code> and shrinking
+                        elements down into a 1px box. Using
+                        <code>display: none</code> or <code>visibility: hidden</code> won't work here, as those
+                        properties remove elements from the page entirely, hiding
+                        them from screen readers too.
+                    </p>
 
                 </div>
             </article>
-            <article class="log-card" id="anchor-focus" aria-labelledby="focus">
+            <article class="log-card" id="anchor-focus" aria-labelledby="anchorFocus">
                 <header class="log-header">
-                    <h2 id="focus">Anchor Focus Using JavaScript</h2>
+                    <h2 id="anchorFocus">Anchor Focus Using JavaScript</h2>
                 </header>
                 <div class="log-body">
                     <p>
@@ -166,9 +293,9 @@
                         JavaScript focus management is required to prevent screen reader confusion.</p>
                 </div>
             </article>
-            <article class="log-card" id="page-focus" aria-labelledby="navigation">
+            <article class="log-card" id="page-focus" aria-labelledby="pageFocus">
                 <header class="log-header">
-                    <h2 id="navigation">Page Navigation Focus</h2>
+                    <h2 id="pageFocus">Page Navigation Focus</h2>
                 </header>
                 <div class="log-body">
                     <strong>My Implementation:</strong>
@@ -191,9 +318,9 @@
                     </p>
                 </div>
             </article>
-            <article class="log-card" id="abbr" aria-labelledby="screenReader">
+            <article class="log-card" id="abbr-sr" aria-labelledby="abbrSr">
                 <header class="log-header">
-                    <h2 id="screenReader">Screen Readers and Abbreviations</h2>
+                    <h2 id="abbrSr">Screen Readers and Abbreviations</h2>
                 </header>
                 <div class="log-body">
                     <p>Using the <strong>&lt;abbr&gt;</strong> element is the appropriate way to help screen readers
@@ -219,9 +346,9 @@
                         screen reader bypasses it completely to read the full word instead.</p>
                 </div>
             </article>
-            <article class="log-card" id="opening-links" aria-labelledby="openLinks">
+            <article class="log-card" id="opening-links" aria-labelledby="openingLinks">
                 <header class="log-header">
-                    <h2 id="openLinks">Opening Links</h2>
+                    <h2 id="openingLinks">Opening Links</h2>
                     <a href="https://theadminbar.com/accessibility-weekly/opening-links-in-new-tabs-or-not/"
                         class="wcag-link">
                         Opening Links in New Tabs (or Not)
