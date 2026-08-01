@@ -15,15 +15,20 @@
     <script src="../js/pageFocus.js" defer></script>
 </head>
 
-<body data-path-prefix="../">
+<body data-path-prefix="../" class="has-sidebar">
     <div class="layout-wrapper-grid">
         <header id="global-header"></header>
 
         <aside role="none">
-            <nav aria-labelledby="toc-heading">
+            <a href="#main-content" class="skip-link">Skip sidebar to main content</a>
+            <nav aria-labelledby="toc-heading" id="sidebar-nav">
                 <h2 id="toc-heading">Notes Directory</h2>
                 <div class="log-contents">
                     <ul class="log-list">
+                        <li><a href="#landmark-semantics">HTML Landmarks & Layout Semantics</a></li>
+                        <li><a href="#browser-pair">Screen Readers and Browser Pairings</a></li>
+                        <li><a href="#screen-reader-eco">Screen Reader Ecosystem</a></li>
+                        <li><a href="#key-app-focus">Keyboard Focus vs. Application Focus</a></li>
                         <li><a href="#target-size">Target Sizing by Changing Display Type</a></li>
                         <li><a href="#aside-none">Avoiding Redundancy (Sidebar Landmark)</a></li>
                         <li><a href="#nav-headings">Navigational Headings & Hierarchy</a></li>
@@ -45,9 +50,112 @@
                         Field
                         Notes</span>
                 </h1>
-                <p>A personal developer log, documenting everything I am learning about digital accessibility.</p>
+                <p>A personal developer log, documenting what I am learning about digital accessibility.</p>
             </section>
 
+            <article class="log-card" id="landmark-semantics" aria-labelledby="landmarkSemantics">
+                <header class="log-header">
+                    <h2 id="landmarkSemantics">HTML Landmarks & Layout Semantics</h2>
+                </header>
+                <div class="log-body">
+                    <p>Using proper semantic HTML elements gives structure to a webpage while also providing screen
+                        readers a mapped layout of
+                        the page's structure. Landmarks like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>,
+                        <code>&lt;main&gt;</code>,
+                        <code>&lt;nav&gt;</code>, and <code>&lt;article&gt;</code> are not seen by sighted users, but
+                        are extremely important for screen reader navigation. These elements are read aloud by screen
+                        readers, providing context to the location on the page for assistive technology users.
+                    </p>
+                    <strong>My Implementation:</strong>
+                    <p>Instead of wrapping major content on this website in generic <code>&lt;div&gt;</code> HTML tags,
+                        I used the
+                        semantic HTML elements that I
+                        believe were the most appropriate. For example, the menu navigation at the top of the page is
+                        wrapped in the <code>&lt;nav&gt;</code>
+                        element and is located inside the <code>&lt;header&gt;</code> tag, which provides a screen
+                        reader tool the
+                        ability to communicate
+                        this information to an assistive technology user. Using the proper semantic HTML elements
+                        throughout the
+                        webpage allows screen reader users the ability to navigate the site easier.</p>
+                </div>
+            </article>
+            <article class="log-card" id="browser-pair" aria-labelledby="browserPair">
+                <header class="log-header">
+                    <h2 id="browserPair">Screen Readers and Browser Pairings</h2>
+                </header>
+                <div class="log-body">
+                    <p>An interesting fact about screen readers is that they are sometimes designed to perform better on
+                        specific web browsers.
+                        This occurs because browsers translate HTML slightly differently, creating unique accessibility
+                        trees that can be
+                        programmed to work better with specific screen readers. An example of this can be found through
+                        Apple's VoiceOver
+                        assistive technology, which, when paired with Mac's native Safari browser, provides the user
+                        with the best experience.
+                        Although screen readers will still work on different browser types, sometimes small issues can
+                        be found.</p>
+                    <p>An example of this is when I was testing the Rotor tool on this project website, using VoiceOver
+                        and Google Chrome. When
+                        changing the Rotor selection to “Articles”, the list does not show the proper HTML article
+                        elements I have created.
+                        Loading VoiceOver in the Safari browser completely fixed this issue, and all the article tags
+                        are listed properly. This
+                        problem does not completely stop an assistive technology user from being able to navigate a
+                        website, but the overall
+                        user experience and ease are much better when paired with the proper browser.</p>
+                    <p>For NVDA and JAWS users, Google Chrome tends to be the most compatible, followed closely by
+                        Mozilla Firefox.</p>
+                </div>
+            </article>
+            <article class="log-card" id="screen-reader-eco" aria-labelledby="screenReaderEco">
+                <header class="log-header">
+                    <h2 id="screenReaderEco">Screen Reader Ecosystem</h2>
+                </header>
+                <div class="log-body">
+                    <p>It is important to remember that not all screen readers are the same, and many are specific to
+                        different operating
+                        systems. This can make testing challenging because you'll need multiple different devices
+                        running different operating
+                        systems. Luckily, the assistive technologies available share many of the same features, so
+                        focusing on using semantic
+                        HTML helps make sure accessibility features are available for all devices.</p>
+                    <p><strong>Apple Devices:</strong> VoiceOver is the assistive technology tool built directly into
+                        macOS and iOS. It is free and exclusive to
+                        only Apple devices.</p>
+                    <p><strong>Android Devices:</strong> TalkBack is the free default built-in assistive technology tool
+                        included on Android devices.</p>
+                    <p><strong>Window Devices:</strong> There are two popular assistive technologies available on
+                        Windows operating systems.</p>
+                    <ul>
+                        <li><strong>NVDA (NonVisual Desktop Access):</strong> A free, open-source screen reader managed
+                            by a non-profit organization.</li>
+                        <li><strong>JAWS (Job Access With Speech):</strong> A highly advanced, professionally made
+                            screen reader that requires a paid license.</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="log-card" id="key-app-focus" aria-labelledby="keyAppFocus">
+                <header class="log-header">
+                    <h2 id="keyAppFocus">Keyboard Focus vs. Application Focus</h2>
+                </header>
+                <div class="log-body">
+                    <p>Keyboard focus refers to DOM or browser focus. These are the elements on the webpage that receive
+                        native keyboard input.
+                        To test keyboard focus, use the Tab or Shift + Tab keys to navigate the page. This should
+                        display a visible focus
+                        indicator around the currently focused element (which only includes interactive elements like
+                        links, inputs, or
+                        buttons).</p>
+                    <p>Application focus refers to the specific element or text that a screen reader is actively
+                        reading. This relies on the
+                        screen reader's built-in navigation tools (known as a "virtual cursor") and is typically
+                        controlled via the arrow keys.
+                        Screen readers include their own focus features, as they can navigate through everything on the
+                        webpage, including both
+                        non-interactive and interactive elements.</p>
+                </div>
+            </article>
             <article class="log-card" id="target-size" aria-labelledby="targetSize">
                 <header class="log-header">
                     <h2 id="targetSize">Target Sizing by Changing Display Type</h2>
