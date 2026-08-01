@@ -144,35 +144,26 @@
                     <h2 id="labelNavs">Labeling Navigation Regions Without Hidden Headings</h2>
                 </header>
                 <div class="log-body">
-                    <p>Using visually hidden <code>
-                        &lt;h2&gt;
-                    </code> elements was once a common way to provide names for <code>
-                        &lt;nav&gt; 
-                    </code>elements. Modern <code>
-                        &lt;nav&gt;
-                    </code> elements
+                    <p>Using visually hidden <code>&lt;h2&gt;</code> elements was once a common way to provide names for
+                        <code>&lt;nav&gt;</code>elements.
+                        Modern <code>&lt;nav&gt;</code> elements
                         natively support ARIA labeling attributes, allowing us to bypass the need for hidden heading
                         elements
                         entirely. While hidden headings can still occasionally be helpful, they are often unnecessary
-                        because <code>
-                                    &lt;nav&gt;
-                                </code>
+                        because <code>&lt;nav&gt;</code>
                         elements are easily navigated as standalone landmark regions.
                     </p>
 
                     <strong>My Implementation:</strong>
 
-                    <p>Instead of adding extra code to visually hide <code>
-                        &lt;h2&gt;
-                    </code> elements inside my site navigation, I use the aria-label attribute
-                        directly on the <code>
-                            &lt;nav&gt;
-                        </code> element (e.g., <code>
-                            &lt;nav aria-label="Main Menu"&gt;
-                        </code>). This provides a concise announcement from the
+                    <p>Instead of adding extra code to visually hide <code>&lt;h2&gt;</code> elements inside my site
+                        navigation, I use the aria-label attribute
+                        directly on the <code>&lt;nav&gt;</code> element (e.g.,
+                        <code>&lt;nav aria-label="Main Menu"&gt;</code>). This provides a concise announcement from the
                         screen reader, removes redundant repetition, and still gives users all the context they need to
                         navigate the
-                        site.</p>
+                        site.
+                    </p>
 
                 </div>
             </article>

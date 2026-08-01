@@ -111,7 +111,9 @@ main {
 
 aside {
   position: static;
-  max-height: none;
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  padding: 0 0.5rem;
 }
 
 .back-link {
@@ -591,7 +593,6 @@ footer {
     grid-column: 1;
     position: sticky;
     top: 2rem;
-    height: fit-content;
   }
 
   footer {
