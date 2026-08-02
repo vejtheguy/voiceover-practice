@@ -396,24 +396,23 @@
                     <h2 id="pageFocus">Page Navigation Focus</h2>
                 </header>
                 <div class="log-body">
-                    <strong>My Implementation:</strong>
                     <p>
-                        I noticed that sometimes when I would click on one of the links on my website and it opened a
-                        new
-                        page,
-                        the screen reader would get stuck repeating the link information from the previous page, or
-                        begin
-                        reading
-                        from a random element on the page. To fix this issue, I utilized <strong>JavaScript</strong> to
-                        set
-                        the
-                        focus to the <code>&lt;h1&gt;</code> element of the page when loaded. A slight delay needed to
-                        be
-                        added;
-                        otherwise, the JavaScript focus method would trigger before the screen reader had fully loaded
-                        the
-                        new DOM content.
+                        I noticed that sometimes when I clicked on one of the links on my website and it opened a new
+                        page, the screen reader
+                        would get stuck repeating the link information from the previous page or begin reading from a
+                        random element on the
+                        page. My initial thought was to fix this by using JavaScript to set focus to the
+                        <code>&lt;h1&gt;</code> element of the page when loaded, but this creates a major accessibility
+                        problem. A screen reader user can easily become lost
+                        or confused because
+                        this method bypasses announcing the new page's <code>&lt;title&gt;</code> and moves the user
+                        past the global header.
                     </p>
+                    <p>This turns out to be one of those quirks where using a different browser resolved the issue. By
+                        using the Safari browser
+                        on my iPad instead of Google Chrome, whenever I navigate to a new page on the website,
+                        the screen reader no
+                        longer has this issue and correctly resets focus to the top of the new page.</p>
                 </div>
             </article>
             <article class="log-card" id="abbr-sr" aria-labelledby="abbrSr">
