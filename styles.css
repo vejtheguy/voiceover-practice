@@ -243,7 +243,8 @@ ol {
 }
 
 .lessons-list a {
-  display: block;
+  display: inline-block;
+  width: 100%;
   padding: 1.5rem 2rem;
   background-color: #f8f9fa;
   border-radius: 8px;
